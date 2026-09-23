@@ -4,7 +4,7 @@ import {AspectInspector} from './components/AspectInspector';
 import {Toolbar} from './components/Toolbar';
 import {ValidationPanel} from './components/ValidationPanel';
 import {aspectTemplates} from './data/aspectTemplates';
-import {freshSampleAspects} from './data/sampleAspects';
+import {thaumcraft6Aspects} from './data/thaumcraft6Aspects';
 import {useAspectHistory} from './hooks/useAspectHistory';
 import {buildAspectGraph} from './logic/aspectGraph';
 import {downloadAspectJson, parseAspectJson} from './logic/importExport';
@@ -16,9 +16,9 @@ const assetRoot = `${import.meta.env.BASE_URL}game-icons/`;
 
 function loadInitialAspects() {
   const saved = localStorage.getItem(storageKey);
-  if (!saved) return freshSampleAspects();
+  if (!saved) return structuredClone(thaumcraft6Aspects);
   const parsed = parseAspectJson(saved, true);
-  return parsed.data ?? freshSampleAspects();
+  return parsed.data ?? structuredClone(thaumcraft6Aspects);
 }
 
 function App() {
