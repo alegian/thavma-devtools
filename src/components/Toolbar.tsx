@@ -9,6 +9,7 @@ interface TemplateOption {
 interface ToolbarProps {
   canUndo: boolean;
   canRedo: boolean;
+  aspectCount: number;
   onCreate: () => void;
   onUndo: () => void;
   onRedo: () => void;
@@ -27,6 +28,7 @@ const faviconUrl = `${import.meta.env.BASE_URL}favicon.png`;
 export function Toolbar({
   canUndo,
   canRedo,
+  aspectCount,
   onCreate,
   onUndo,
   onRedo,
@@ -44,6 +46,9 @@ export function Toolbar({
         <h1 className="font-serif text-lg leading-none tracking-wide text-ink">
           Aspect Tree Editor
         </h1>
+        <span className="rounded-full border border-line bg-black/15 px-2 py-1 text-[10px] font-medium text-muted">
+          {aspectCount} {aspectCount === 1 ? 'aspect' : 'aspects'}
+        </span>
       </div>
       <button className={buttonClass} onClick={onCreate}>
         New aspect

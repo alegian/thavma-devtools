@@ -19,6 +19,7 @@ export function AspectCard({
   const componentAspects = (aspect.components ?? []).map(id =>
     graph.byId.get(id),
   );
+  const useCount = graph.componentUseCounts.get(aspect.id) ?? 0;
   return (
     <button
       type="button"
@@ -74,12 +75,15 @@ export function AspectCard({
           )}
         </div>
       )}
-      {aspect.opposite && (
-        <p className="mt-2 truncate text-[10px] text-faint">
-          Opposes{' '}
-          <span className="text-muted">{aspectName(aspect.opposite)}</span>
-        </p>
-      )}
+      <p className="mt-2 truncate text-[10px] text-faint">
+        Opposes{' '}
+        <span className="text-muted">
+          {aspect.opposite ? aspectName(aspect.opposite) : 'none'}
+        </span>
+      </p>
+      <p className="mt-2 border-t border-line/70 pt-2 text-[10px] text-faint">
+        Used {useCount} {useCount === 1 ? 'time' : 'times'}
+      </p>
     </button>
   );
 }

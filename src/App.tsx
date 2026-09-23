@@ -193,6 +193,7 @@ function App() {
       <Toolbar
         canUndo={history.canUndo}
         canRedo={history.canRedo}
+        aspectCount={history.value.length}
         onCreate={createAspect}
         onUndo={history.undo}
         onRedo={history.redo}

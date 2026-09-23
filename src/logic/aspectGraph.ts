@@ -4,20 +4,29 @@ export interface AspectGraph {
   byId: Map<AspectId, Aspect>;
   depths: Map<AspectId, number | null>;
   dependents: Map<AspectId, AspectId[]>;
+  componentUseCounts: Map<AspectId, number>;
 }
 
 export function buildAspectGraph(aspects: Aspect[]): AspectGraph {
   const byId = new Map(aspects.map(aspect => [aspect.id, aspect]));
   const depths = new Map<AspectId, number | null>();
   const dependents = new Map<AspectId, AspectId[]>();
+  const componentUseCounts = new Map<AspectId, number>();
 
   for (const aspect of aspects) {
     dependents.set(aspect.id, []);
+    componentUseCounts.set(aspect.id, 0);
   }
   for (const aspect of aspects) {
     for (const component of aspect.components ?? []) {
       const list = dependents.get(component);
       if (list && !list.includes(aspect.id)) list.push(aspect.id);
+      if (componentUseCounts.has(component)) {
+        componentUseCounts.set(
+          component,
+          (componentUseCounts.get(component) ?? 0) + 1,
+        );
+      }
     }
   }
 
@@ -45,7 +54,7 @@ export function buildAspectGraph(aspects: Aspect[]): AspectGraph {
   };
 
   for (const aspect of aspects) calculateDepth(aspect.id, new Set());
-  return {byId, depths, dependents};
+  return {byId, depths, dependents, componentUseCounts};
 }
 
 export function getAncestors(id: AspectId, graph: AspectGraph): Aspect[] {
