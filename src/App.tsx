@@ -1,5 +1,4 @@
 import { useDeferredValue, useEffect, useState } from 'react'
-import './App.css'
 
 type Icon = {
   name: string
@@ -30,27 +29,35 @@ function App() {
   )
 
   return (
-    <main>
-      <h1>Game icons</h1>
-      <input
-        type="search"
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-        placeholder="Search icons"
-        aria-label="Search icons"
-        autoFocus
-      />
-      <div className="icons">
-        {results.map((icon) => (
-          <figure key={`${icon.author}/${icon.slug}`} title={`${icon.name} by ${icon.author}`}>
-            <img
-              src={`${assetRoot}${icon.path.split('/').map(encodeURIComponent).join('/')}`}
-              alt={icon.name}
-              loading="lazy"
-            />
-            <figcaption>{icon.name}</figcaption>
-          </figure>
-        ))}
+    <main className="min-h-screen bg-neutral-950 text-white">
+      <div className="mx-auto w-full max-w-6xl p-8">
+        <h1 className="mb-6 text-2xl font-bold">Game icons</h1>
+        <input
+          className="mb-8 w-full border border-neutral-600 bg-transparent p-3 text-inherit"
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search icons"
+          aria-label="Search icons"
+          autoFocus
+        />
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-9">
+          {results.map((icon) => (
+            <figure
+              className="m-0 min-w-0"
+              key={`${icon.author}/${icon.slug}`}
+              title={`${icon.name} by ${icon.author}`}
+            >
+              <img
+                className="block aspect-square w-full"
+                src={`${assetRoot}${icon.path.split('/').map(encodeURIComponent).join('/')}`}
+                alt={icon.name}
+                loading="lazy"
+              />
+              <figcaption className="mt-2 truncate text-xs capitalize">{icon.name}</figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </main>
   )
