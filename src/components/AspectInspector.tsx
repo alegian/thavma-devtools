@@ -52,7 +52,9 @@ export function AspectInspector({
       </aside>
     );
 
-  const candidates = aspects.filter(candidate => candidate.id !== aspect.id);
+  const componentCandidates = aspects.filter(
+    candidate => candidate.id !== aspect.id,
+  );
   const ancestors = getAncestors(aspect.id, graph);
   const dependents = getDependents(aspect.id, graph);
   const opposite = aspect.opposite ? graph.byId.get(aspect.opposite) : null;
@@ -80,8 +82,8 @@ export function AspectInspector({
   };
   const toggleCompound = () => {
     if (aspect.components) return onUpdate({components: null});
-    const first = candidates[0]?.id;
-    const second = candidates[1]?.id ?? first;
+    const first = componentCandidates[0]?.id;
+    const second = componentCandidates[1]?.id ?? first;
     if (first && second) onUpdate({components: [first, second]});
   };
 
@@ -214,7 +216,7 @@ export function AspectInspector({
                     onUpdate({components});
                   }}
                 >
-                  {candidates.map(candidate => (
+                  {componentCandidates.map(candidate => (
                     <option key={candidate.id} value={candidate.id}>
                       {aspectName(candidate.id)}
                     </option>
@@ -233,9 +235,10 @@ export function AspectInspector({
             onChange={event => onUpdate({opposite: event.target.value || null})}
           >
             <option value="">None</option>
-            {candidates.map(candidate => (
+            {aspects.map(candidate => (
               <option key={candidate.id} value={candidate.id}>
                 {aspectName(candidate.id)}
+                {candidate.id === aspect.id ? ' (self)' : ''}
               </option>
             ))}
           </select>

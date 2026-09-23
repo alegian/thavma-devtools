@@ -57,12 +57,6 @@ export function validateAspects(aspects: Aspect[]): ValidationProblem[] {
         message: `Opposite “${aspect.opposite}” does not exist.`,
         severity: 'error',
       });
-    if (aspect.opposite === aspect.id)
-      problems.push({
-        aspectId: aspect.id,
-        message: 'An aspect cannot be its own opposite.',
-        severity: 'error',
-      });
     if (aspect.opposite) {
       const opposite = aspects.find(
         candidate => candidate.id === aspect.opposite,
