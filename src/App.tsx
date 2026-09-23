@@ -54,7 +54,9 @@ function App() {
                 alt={icon.name}
                 loading="lazy"
               />
-              <figcaption className="mt-2 truncate text-xs capitalize">{icon.name}</figcaption>
+              <figcaption className="mt-2 truncate text-xs capitalize">
+                {icon.name}
+              </figcaption>
             </figure>
           ))}
         </div>

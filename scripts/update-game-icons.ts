@@ -1,7 +1,15 @@
 #!/usr/bin/env node
 
 import { createWriteStream } from 'node:fs'
-import { mkdir, mkdtemp, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
+import {
+  mkdir,
+  mkdtemp,
+  readdir,
+  readFile,
+  rename,
+  rm,
+  writeFile,
+} from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { basename, dirname, join, relative, resolve, sep } from 'node:path'
 import { Readable } from 'node:stream'
@@ -20,8 +28,8 @@ const archive = join(temporaryDirectory, 'icons.tar.gz')
 const source = join(temporaryDirectory, 'source')
 const backgroundPath = '<path d="M0 0h512v512H0z"/>'
 
-function run(command, args) {
-  return new Promise((resolvePromise, reject) => {
+function run(command: string, args: string[]) {
+  return new Promise<void>((resolvePromise, reject) => {
     const child = spawn(command, args, { stdio: 'inherit' })
     child.on('error', reject)
     child.on('exit', (code) => {
@@ -31,15 +39,20 @@ function run(command, args) {
   })
 }
 
-async function collectSvgFiles(directory) {
-  const files = []
+async function collectSvgFiles(directory: string) {
+  const files: string[] = []
 
-  async function walk(currentDirectory) {
+  async function walk(currentDirectory: string) {
     const entries = await readdir(currentDirectory, { withFileTypes: true })
     for (const entry of entries) {
       const path = join(currentDirectory, entry.name)
       if (entry.isDirectory()) await walk(path)
-      else if (entry.isFile() && entry.name.endsWith('.svg') && relative(directory, path).split(sep)[0] !== 'badges') files.push(path)
+      else if (
+        entry.isFile() &&
+        entry.name.endsWith('.svg') &&
+        relative(directory, path).split(sep)[0] !== 'badges'
+      )
+        files.push(path)
     }
   }
 
@@ -53,15 +66,20 @@ try {
     headers: { 'User-Agent': 'thavma-devtools-icon-updater' },
   })
   if (!response.ok || !response.body) {
-    throw new Error(`Download failed: ${response.status} ${response.statusText}`)
+    throw new Error(
+      `Download failed: ${response.status} ${response.statusText}`,
+    )
   }
 
-  await finished(Readable.fromWeb(response.body).pipe(createWriteStream(archive)))
+  await finished(
+    Readable.fromWeb(response.body).pipe(createWriteStream(archive)),
+  )
   await mkdir(source)
   await run('tar', ['-xzf', archive, '-C', source, '--strip-components=1'])
 
   const svgFiles = await collectSvgFiles(source)
-  if (svgFiles.length === 0) throw new Error('The upstream archive contained no SVG files')
+  if (svgFiles.length === 0)
+    throw new Error('The upstream archive contained no SVG files')
 
   await rm(staging, { recursive: true, force: true })
   await mkdir(join(staging, 'svg'), { recursive: true })
@@ -75,7 +93,9 @@ try {
 
     const svg = await readFile(sourcePath, 'utf8')
     if (!svg.includes(backgroundPath)) {
-      throw new Error(`Cannot make ${path} transparent: background path not found`)
+      throw new Error(
+        `Cannot make ${path} transparent: background path not found`,
+      )
     }
 
     await mkdir(dirname(destinationPath), { recursive: true })
@@ -103,7 +123,9 @@ try {
 
   await rm(destination, { recursive: true, force: true })
   await rename(staging, destination)
-  console.log(`Updated ${icons.length.toLocaleString()} SVG icons in public/game-icons`)
+  console.log(
+    `Updated ${icons.length.toLocaleString()} SVG icons in public/game-icons`,
+  )
 } finally {
   await rm(staging, { recursive: true, force: true })
   await rm(temporaryDirectory, { recursive: true, force: true })
