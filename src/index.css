@@ -1,12 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Roboto', sans-serif;
+  --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: #10100f;
+  --color-board: #141412;
+  --color-panel: #191917;
+  --color-panel-strong: #22221f;
+  --color-card: #1d1d1a;
+  --color-card-hover: #252520;
+  --color-field: #121210;
+  --color-line: #373632;
+  --color-ink: #f1eee5;
+  --color-muted: #aaa69d;
+  --color-faint: #6e6b65;
+  --color-amber: #d9a94a;
+  --color-danger: #ef746b;
+  --color-success: #75b98c;
 }
 
 @layer base {
-  :root {
-    @apply font-sans;
+  * {
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  body {
+    @apply m-0 min-w-80 bg-canvas font-sans antialiased;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  button,
+  select {
+    @apply cursor-pointer;
   }
 }
