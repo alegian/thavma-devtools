@@ -3,6 +3,7 @@ import {AspectBoard} from './components/AspectBoard';
 import {AspectInspector} from './components/AspectInspector';
 import {Toolbar} from './components/Toolbar';
 import {ValidationPanel} from './components/ValidationPanel';
+import {aspectTemplates} from './data/aspectTemplates';
 import {freshSampleAspects} from './data/sampleAspects';
 import {useAspectHistory} from './hooks/useAspectHistory';
 import {buildAspectGraph} from './logic/aspectGraph';
@@ -170,15 +171,20 @@ function App() {
     setSelectedId(remaining[0]?.id ?? null);
   };
 
-  const reset = () => {
+  const reset = (templateId: string) => {
+    const template = aspectTemplates.find(
+      candidate => candidate.id === templateId,
+    );
+    if (!template) return;
     if (
       !window.confirm(
-        'Replace the current dataset with sample aspects? This can be undone.',
+        `Replace the current dataset with “${template.name}”? This can be undone.`,
       )
     )
       return;
-    history.set(freshSampleAspects());
-    setSelectedId('motus');
+    const aspects = template.create();
+    history.set(aspects);
+    setSelectedId(aspects[0]?.id ?? null);
     setImportProblems([]);
   };
 
@@ -192,6 +198,7 @@ function App() {
         onRedo={history.redo}
         onImport={() => fileInput.current?.click()}
         onExport={() => downloadAspectJson(history.value)}
+        templates={aspectTemplates}
         onReset={reset}
       />
       <input

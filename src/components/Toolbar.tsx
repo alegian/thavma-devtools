@@ -1,3 +1,11 @@
+import {useState} from 'react';
+
+interface TemplateOption {
+  id: string;
+  name: string;
+  description: string;
+}
+
 interface ToolbarProps {
   canUndo: boolean;
   canRedo: boolean;
@@ -6,7 +14,8 @@ interface ToolbarProps {
   onRedo: () => void;
   onImport: () => void;
   onExport: () => void;
-  onReset: () => void;
+  templates: TemplateOption[];
+  onReset: (templateId: string) => void;
 }
 
 const buttonClass =
@@ -23,8 +32,11 @@ export function Toolbar({
   onRedo,
   onImport,
   onExport,
+  templates,
   onReset,
 }: ToolbarProps) {
+  const [templateMenuOpen, setTemplateMenuOpen] = useState(false);
+
   return (
     <header className="flex min-h-16 flex-wrap items-center gap-2 border-b border-line bg-panel/95 px-4 py-3 lg:px-6">
       <div className="mr-auto flex min-w-56 items-center gap-3">
@@ -86,9 +98,51 @@ export function Toolbar({
       <button className={buttonClass} onClick={onExport}>
         Export JSON
       </button>
-      <button className={buttonClass} onClick={onReset}>
-        Reset sample data
-      </button>
+      <div className="relative">
+        <button
+          className={`${buttonClass} flex items-center gap-2`}
+          type="button"
+          aria-haspopup="menu"
+          aria-expanded={templateMenuOpen}
+          onClick={() => setTemplateMenuOpen(open => !open)}
+        >
+          Templates
+          <svg
+            viewBox="0 0 20 20"
+            className="size-3"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="m5 7 5 6 5-6H5Z" />
+          </svg>
+        </button>
+        {templateMenuOpen && (
+          <div
+            className="absolute right-0 top-full z-30 mt-2 w-72 overflow-hidden rounded-md border border-line bg-panel-strong p-1 shadow-2xl"
+            role="menu"
+          >
+            {templates.map(template => (
+              <button
+                type="button"
+                role="menuitem"
+                key={template.id}
+                onClick={() => {
+                  setTemplateMenuOpen(false);
+                  onReset(template.id);
+                }}
+                className="block w-full rounded px-3 py-2 text-left hover:bg-white/5"
+              >
+                <span className="block text-xs font-semibold text-ink">
+                  {template.name}
+                </span>
+                <span className="mt-0.5 block text-[10px] leading-relaxed text-muted">
+                  {template.description}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
     </header>
   );
 }
