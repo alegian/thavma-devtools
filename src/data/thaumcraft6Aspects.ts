@@ -26,14 +26,14 @@ export const thaumcraft6Aspects: Aspect[] = [
   {
     id: 'ordo',
     color: '#d5d4ec',
-    icon: {id: 'svg/sbed/overmind.svg'},
+    icon: {id: 'svg/lorc/moebius-triangle.svg'},
     components: null,
     opposite: 'perditio',
   },
   {
     id: 'perditio',
     color: '#404040',
-    icon: {id: 'svg/lorc/shatter.svg'},
+    icon: {id: 'svg/lorc/cracked-disc.svg'},
     components: null,
     opposite: 'ordo',
   },
@@ -47,7 +47,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   {
     id: 'gelum',
     color: '#e1ffff',
-    icon: {id: 'svg/lorc/snowflake-2.svg'},
+    icon: {id: 'svg/lorc/ice-cube.svg'},
     components: ['ignis', 'perditio'],
     opposite: null,
   },
@@ -96,7 +96,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   {
     id: 'vacuos',
     color: '#888888',
-    icon: {id: 'svg/delapouite/glass-ball.svg'},
+    icon: {id: 'svg/delapouite/circle.svg'},
     components: ['aer', 'perditio'],
     opposite: null,
   },
@@ -124,7 +124,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   {
     id: 'exanimis',
     color: '#3a4000',
-    icon: {id: 'svg/lorc/dread-skull.svg'},
+    icon: {id: 'svg/lorc/death-zone.svg'},
     components: ['mortuus', 'motus'],
     opposite: null,
   },
@@ -257,7 +257,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   {
     id: 'vitium',
     color: '#800080',
-    icon: {id: 'svg/lorc/tentacle-strike.svg'},
+    icon: {id: 'svg/lorc/infested-mass.svg'},
     components: ['perditio', 'praecantatio'],
     opposite: null,
   },
