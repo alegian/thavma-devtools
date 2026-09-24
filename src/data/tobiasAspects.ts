@@ -166,7 +166,7 @@ export const tobiasAspects: Aspect[] = [
     id: 'meto',
     color: '#eead82',
     icon: {id: 'svg/delapouite/sickle.svg'},
-    components: ['humanus', 'messis'],
+    components: ['instrumentum', 'messis'],
     opposite: 'alienis',
   },
   {
