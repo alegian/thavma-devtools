@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {HexColorPicker} from 'react-colorful';
 import {
   getAncestors,
@@ -8,7 +8,6 @@ import {
 import type {Aspect, GameIcon} from '../types/aspect';
 import {aspectName} from '../logic/format';
 import {AspectIcon} from './AspectIcon';
-import {AspectFocusView} from './AspectFocusView';
 import {IconPicker} from './IconPicker';
 
 interface AspectInspectorProps {
@@ -38,7 +37,21 @@ export function AspectInspector({
   const [nameDraft, setNameDraft] = useState({aspectId: '', value: ''});
   const [pickerOpen, setPickerOpen] = useState(false);
   const [colorPickerOpen, setColorPickerOpen] = useState(false);
+  const [aspectMenuOpen, setAspectMenuOpen] = useState(false);
+  const [aspectQuery, setAspectQuery] = useState('');
   const [nameError, setNameError] = useState({aspectId: '', message: ''});
+  const aspectMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!aspectMenuOpen) return;
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!aspectMenuRef.current?.contains(event.target as Node))
+        setAspectMenuOpen(false);
+    };
+    document.addEventListener('pointerdown', closeOnOutsideClick);
+    return () =>
+      document.removeEventListener('pointerdown', closeOnOutsideClick);
+  }, [aspectMenuOpen]);
 
   if (!aspect)
     return (
@@ -58,6 +71,14 @@ export function AspectInspector({
   const ancestors = getAncestors(aspect.id, graph);
   const dependents = getDependents(aspect.id, graph);
   const opposite = aspect.opposite ? graph.byId.get(aspect.opposite) : null;
+  const normalizedAspectQuery = aspectQuery.trim().toLowerCase();
+  const aspectOptions = aspects.filter(
+    candidate =>
+      candidate.id !== aspect.id &&
+      `${aspectName(candidate.id)} ${candidate.id}`
+        .toLowerCase()
+        .includes(normalizedAspectQuery),
+  );
   const displayedName =
     nameDraft.aspectId === aspect.id ? nameDraft.value : aspectName(aspect.id);
   const displayedError =
@@ -90,7 +111,7 @@ export function AspectInspector({
   return (
     <aside className="min-w-0 overflow-y-auto border-l border-line bg-panel">
       <div className="border-b border-line p-5">
-        <div className="flex items-center gap-4">
+        <div ref={aspectMenuRef} className="relative flex items-center gap-4">
           <button
             type="button"
             onClick={() => setPickerOpen(true)}
@@ -103,14 +124,86 @@ export function AspectInspector({
               className="size-11"
             />
           </button>
-          <div className="min-w-0">
-            <h2 className="truncate font-serif text-xl text-ink">
-              {aspectName(aspect.id)}
-            </h2>
-            <p className="mt-1 text-xs text-muted">
-              Depth {graph.depths.get(aspect.id) ?? 'unresolved'}
-            </p>
-          </div>
+          <button
+            type="button"
+            aria-expanded={aspectMenuOpen}
+            aria-haspopup="listbox"
+            onClick={() => {
+              setAspectQuery('');
+              setAspectMenuOpen(open => !open);
+            }}
+            className="flex min-w-0 flex-1 items-center gap-3 text-left"
+            title="Switch inspected aspect"
+          >
+            <div className="min-w-0 flex-1">
+              <h2 className="truncate font-serif text-xl text-ink">
+                {aspectName(aspect.id)}
+              </h2>
+              <p className="mt-1 text-xs text-muted">
+                Depth {graph.depths.get(aspect.id) ?? 'unresolved'}
+              </p>
+            </div>
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              className={`size-4 shrink-0 text-muted transition-transform ${aspectMenuOpen ? 'rotate-180' : ''}`}
+            >
+              <path
+                d="m4 6 4 4 4-4"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </button>
+          {aspectMenuOpen && (
+            <div className="absolute inset-x-0 top-full z-20 mt-3 overflow-hidden rounded-lg border border-line bg-panel-strong shadow-2xl">
+              <div className="border-b border-line p-2">
+                <input
+                  autoFocus
+                  type="search"
+                  value={aspectQuery}
+                  onChange={event => setAspectQuery(event.target.value)}
+                  onKeyDown={event => {
+                    if (event.key === 'Escape') setAspectMenuOpen(false);
+                  }}
+                  placeholder="Search aspects..."
+                  className="w-full rounded-md border border-line bg-field px-3 py-2 text-sm text-ink outline-none placeholder:text-faint focus:border-amber/70"
+                />
+              </div>
+              <div className="max-h-64 overflow-y-auto p-1" role="listbox">
+                {aspectOptions.map(candidate => (
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected="false"
+                    key={candidate.id}
+                    onClick={() => {
+                      onSelect(candidate.id);
+                      setAspectMenuOpen(false);
+                    }}
+                    className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left hover:bg-white/5"
+                  >
+                    <AspectIcon
+                      iconId={candidate.icon.id}
+                      color={candidate.color}
+                      className="size-5"
+                    />
+                    <span className="min-w-0 flex-1 truncate text-sm text-ink">
+                      {aspectName(candidate.id)}
+                    </span>
+                  </button>
+                ))}
+                {aspectOptions.length === 0 && (
+                  <p className="px-3 py-6 text-center text-xs text-muted">
+                    No matching aspects.
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -246,7 +339,6 @@ export function AspectInspector({
       </div>
 
       <div className="space-y-5 border-t border-line p-5">
-        <AspectFocusView aspect={aspect} graph={graph} onSelect={onSelect} />
         <RelationList
           title="Components"
           aspects={(aspect.components ?? []).flatMap(
