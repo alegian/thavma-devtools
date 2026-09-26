@@ -287,6 +287,7 @@ export function AspectInspector({
         <IconPicker
           icons={icons}
           color={aspect.color}
+          selectedIconId={aspect.icon.id}
           onClose={() => setPickerOpen(false)}
           onSelect={icon => {
             onUpdate({icon: {id: icon.path}});

@@ -5,13 +5,29 @@ import {AspectIcon} from './AspectIcon';
 interface IconPickerProps {
   icons: GameIcon[];
   color: string;
+  selectedIconId: string;
   onSelect: (icon: GameIcon) => void;
   onClose: () => void;
 }
 
-export function IconPicker({icons, color, onSelect, onClose}: IconPickerProps) {
+export function IconPicker({
+  icons,
+  color,
+  selectedIconId,
+  onSelect,
+  onClose,
+}: IconPickerProps) {
   const [query, setQuery] = useState('');
   const deferredQuery = useDeferredValue(query.trim().toLowerCase());
+  const selectedIcon = icons.find(icon => icon.path === selectedIconId);
+  const selectedIconName =
+    selectedIcon?.name ||
+    selectedIcon?.slug ||
+    selectedIconId
+      .split('/')
+      .at(-1)
+      ?.replace(/\.svg$/, '') ||
+    selectedIconId;
   const results = icons
     .filter(icon =>
       `${icon.name} ${icon.author}`.toLowerCase().includes(deferredQuery),
@@ -42,6 +58,24 @@ export function IconPicker({icons, color, onSelect, onClose}: IconPickerProps) {
             Close
           </button>
         </header>
+        <div className="flex items-center gap-3 border-b border-line bg-black/10 px-4 py-3">
+          <div className="grid size-11 shrink-0 place-items-center rounded-md border border-line bg-black/20">
+            <AspectIcon
+              iconId={selectedIconId}
+              color={color}
+              className="size-7"
+              label={selectedIconName}
+            />
+          </div>
+          <div className="min-w-0">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-faint">
+              Selected icon
+            </p>
+            <p className="truncate text-sm capitalize text-ink">
+              {selectedIconName}
+            </p>
+          </div>
+        </div>
         <div className="border-b border-line p-4">
           <input
             autoFocus
