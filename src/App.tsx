@@ -139,12 +139,29 @@ function App() {
     }
     const aspect: Aspect = {
       id: nextId,
-      color: '#d9a94a',
-      icon: {id: 'svg/lorc/crystal-growth.svg'},
+      color: '#ffffff',
+      icon: {id: 'svg/sbed/help.svg'},
       components: null,
       opposite: null,
     };
     history.set(current => [...current, aspect]);
+    setSelectedId(nextId);
+  };
+
+  const copyAspect = (templateId: string, aspectId: string) => {
+    const source = aspectTemplates
+      .find(template => template.id === templateId)
+      ?.create()
+      .find(aspect => aspect.id === aspectId);
+    if (!source) return;
+
+    let nextId = source.id;
+    let suffix = 2;
+    while (graph.byId.has(nextId)) {
+      nextId = `${source.id}-${suffix}`;
+      suffix += 1;
+    }
+    history.set(current => [...current, {...source, id: nextId}]);
     setSelectedId(nextId);
   };
 
@@ -195,6 +212,7 @@ function App() {
         canRedo={history.canRedo}
         aspectCount={history.value.length}
         onCreate={createAspect}
+        onCopy={copyAspect}
         onUndo={history.undo}
         onRedo={history.redo}
         onImport={() => fileInput.current?.click()}

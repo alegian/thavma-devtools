@@ -3,8 +3,15 @@ import type {Aspect} from '../types/aspect';
 import {aspectName} from '../logic/format';
 import {AspectIcon} from './AspectIcon';
 
+export interface AspectDropdownOption {
+  value: string;
+  aspect: Aspect;
+  subtitle?: string;
+}
+
 interface AspectDropdownProps {
-  aspects: Aspect[];
+  aspects?: Aspect[];
+  options?: AspectDropdownOption[];
   value: string | null;
   trigger: ReactNode;
   onSelect: (id: string | null) => void;
@@ -17,7 +24,8 @@ interface AspectDropdownProps {
 }
 
 export function AspectDropdown({
-  aspects,
+  aspects = [],
+  options: providedOptions,
   value,
   trigger,
   onSelect,
@@ -32,10 +40,12 @@ export function AspectDropdown({
   const [query, setQuery] = useState('');
   const rootRef = useRef<HTMLDivElement>(null);
   const normalizedQuery = query.trim().toLowerCase();
-  const options = aspects.filter(
-    aspect =>
-      (!excludeValue || aspect.id !== value) &&
-      `${aspectName(aspect.id)} ${aspect.id}`
+  const availableOptions: AspectDropdownOption[] =
+    providedOptions ?? aspects.map(aspect => ({value: aspect.id, aspect}));
+  const options = availableOptions.filter(
+    option =>
+      (!excludeValue || option.value !== value) &&
+      `${aspectName(option.aspect.id)} ${option.aspect.id} ${option.subtitle ?? ''}`
         .toLowerCase()
         .includes(normalizedQuery),
   );
@@ -113,23 +123,30 @@ export function AspectDropdown({
                 None
               </button>
             )}
-            {options.map(aspect => (
+            {options.map(option => (
               <button
                 type="button"
                 role="option"
-                aria-selected={aspect.id === value}
-                key={aspect.id}
-                onClick={() => select(aspect.id)}
+                aria-selected={option.value === value}
+                key={option.value}
+                onClick={() => select(option.value)}
                 className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left hover:bg-white/5"
               >
                 <AspectIcon
-                  iconId={aspect.icon.id}
-                  color={aspect.color}
+                  iconId={option.aspect.icon.id}
+                  color={option.aspect.color}
                   className="size-5"
                 />
-                <span className="min-w-0 flex-1 truncate text-sm text-ink">
-                  {aspectName(aspect.id)}
-                  {aspect.id === selfId ? ' (self)' : ''}
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm text-ink">
+                    {aspectName(option.aspect.id)}
+                    {option.aspect.id === selfId ? ' (self)' : ''}
+                  </span>
+                  {option.subtitle && (
+                    <span className="mt-0.5 block truncate text-[10px] text-muted">
+                      {option.subtitle}
+                    </span>
+                  )}
                 </span>
               </button>
             ))}

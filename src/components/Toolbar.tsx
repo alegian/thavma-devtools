@@ -1,21 +1,18 @@
 import {useState} from 'react';
-
-interface TemplateOption {
-  id: string;
-  name: string;
-  description: string;
-}
+import type {AspectTemplate} from '../data/aspectTemplates';
+import {NewAspectDropdown} from './NewAspectDropdown';
 
 interface ToolbarProps {
   canUndo: boolean;
   canRedo: boolean;
   aspectCount: number;
   onCreate: () => void;
+  onCopy: (templateId: string, aspectId: string) => void;
   onUndo: () => void;
   onRedo: () => void;
   onImport: () => void;
   onExport: () => void;
-  templates: TemplateOption[];
+  templates: AspectTemplate[];
   onReset: (templateId: string) => void;
 }
 
@@ -30,6 +27,7 @@ export function Toolbar({
   canRedo,
   aspectCount,
   onCreate,
+  onCopy,
   onUndo,
   onRedo,
   onImport,
@@ -50,9 +48,11 @@ export function Toolbar({
           {aspectCount} {aspectCount === 1 ? 'aspect' : 'aspects'}
         </span>
       </div>
-      <button className={buttonClass} onClick={onCreate}>
-        New aspect
-      </button>
+      <NewAspectDropdown
+        templates={templates}
+        onCreate={onCreate}
+        onCopy={onCopy}
+      />
       <span className="mx-1 hidden h-6 w-px bg-line sm:block" />
       <button
         className={iconButtonClass}
