@@ -4,6 +4,7 @@ import type {Aspect} from '../types/aspect';
 export const thaumcraft4Aspects: Aspect[] = [
   {
     id: 'aer',
+    description: '',
     color: '#ffff7e',
     icon: {id: 'svg/lorc/gold-shell.svg'},
     components: null,
@@ -11,6 +12,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'aqua',
+    description: '',
     color: '#3cd4fc',
     icon: {id: 'svg/lorc/at-sea.svg'},
     components: null,
@@ -18,6 +20,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'ignis',
+    description: '',
     color: '#ff5a01',
     icon: {id: 'svg/lorc/small-fire.svg'},
     components: null,
@@ -25,6 +28,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'ordo',
+    description: '',
     color: '#d5d4ec',
     icon: {id: 'svg/lorc/moebius-triangle.svg'},
     components: null,
@@ -32,6 +36,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'perditio',
+    description: '',
     color: '#404040',
     icon: {id: 'svg/lorc/cracked-disc.svg'},
     components: null,
@@ -39,6 +44,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'terra',
+    description: '',
     color: '#56c000',
     icon: {id: 'svg/lorc/mountains.svg'},
     components: null,
@@ -46,6 +52,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'gelum',
+    description: '',
     color: '#e1ffff',
     icon: {id: 'svg/lorc/ice-cube.svg'},
     components: ['ignis', 'perditio'],
@@ -53,6 +60,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'lux',
+    description: '',
     color: '#fff663',
     icon: {id: 'svg/lorc/candle-light.svg'},
     components: ['aer', 'ignis'],
@@ -60,6 +68,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'motus',
+    description: '',
     color: '#cdccf4',
     icon: {id: 'svg/lorc/dodging.svg'},
     components: ['aer', 'ordo'],
@@ -67,6 +76,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'permutatio',
+    description: '',
     color: '#578357',
     icon: {id: 'svg/lorc/cycle.svg'},
     components: ['ordo', 'perditio'],
@@ -74,6 +84,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'potentia',
+    description: '',
     color: '#c0ffff',
     icon: {id: 'svg/lorc/thor-fist.svg'},
     components: ['ignis', 'ordo'],
@@ -81,6 +92,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'tempestas',
+    description: '',
     color: '#ffffff',
     icon: {id: 'svg/lorc/lightning-storm.svg'},
     components: ['aer', 'aqua'],
@@ -88,6 +100,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'vacuos',
+    description: '',
     color: '#888888',
     icon: {id: 'svg/delapouite/circle.svg'},
     components: ['aer', 'perditio'],
@@ -95,6 +108,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'venenum',
+    description: '',
     color: '#89f000',
     icon: {id: 'svg/lorc/poison-bottle.svg'},
     components: ['aqua', 'perditio'],
@@ -102,6 +116,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'victus',
+    description: '',
     color: '#de0005',
     icon: {id: 'svg/lorc/shining-heart.svg'},
     components: ['aqua', 'terra'],
@@ -109,6 +124,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'vitreus',
+    description: '',
     color: '#80ffff',
     icon: {id: 'svg/lorc/emerald.svg'},
     components: ['ordo', 'terra'],
@@ -116,6 +132,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'bestia',
+    description: '',
     color: '#9f6409',
     icon: {id: 'svg/lorc/wolf-head.svg'},
     components: ['motus', 'victus'],
@@ -123,6 +140,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'fames',
+    description: '',
     color: '#9a0305',
     icon: {id: 'svg/lorc/mouth-watering.svg'},
     components: ['vacuos', 'victus'],
@@ -130,6 +148,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'herba',
+    description: '',
     color: '#01ac00',
     icon: {id: 'svg/lorc/three-leaves.svg'},
     components: ['terra', 'victus'],
@@ -137,6 +156,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'iter',
+    description: '',
     color: '#e0585b',
     icon: {id: 'svg/lorc/journey.svg'},
     components: ['motus', 'terra'],
@@ -144,6 +164,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'limus',
+    description: '',
     color: '#01f800',
     icon: {id: 'svg/lorc/acid-blob.svg'},
     components: ['aqua', 'victus'],
@@ -151,6 +172,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'metallum',
+    description: '',
     color: '#b5b5cd',
     icon: {id: 'svg/lorc/metal-bar.svg'},
     components: ['terra', 'vitreus'],
@@ -158,6 +180,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'mortuus',
+    description: '',
     color: '#887788',
     icon: {id: 'svg/lorc/pirate-grave.svg'},
     components: ['perditio', 'victus'],
@@ -165,6 +188,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'praecantatio',
+    description: '',
     color: '#9700c0',
     icon: {id: 'svg/lorc/fairy-wand.svg'},
     components: ['potentia', 'vacuos'],
@@ -172,6 +196,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'sano',
+    description: '',
     color: '#ff2f34',
     icon: {id: 'svg/lorc/heart-bottle.svg'},
     components: ['ordo', 'victus'],
@@ -179,6 +204,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'tenebrae',
+    description: '',
     color: '#222222',
     icon: {id: 'svg/lorc/eclipse.svg'},
     components: ['lux', 'vacuos'],
@@ -186,6 +212,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'vinculum',
+    description: '',
     color: '#9a8080',
     icon: {id: 'svg/lorc/wolf-trap.svg'},
     components: ['motus', 'perditio'],
@@ -193,6 +220,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'volatus',
+    description: '',
     color: '#e7e7d7',
     icon: {id: 'svg/lorc/feather.svg'},
     components: ['aer', 'motus'],
@@ -200,6 +228,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'alienis',
+    description: '',
     color: '#805080',
     icon: {id: 'svg/lorc/orbital.svg'},
     components: ['tenebrae', 'vacuos'],
@@ -207,6 +236,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'arbor',
+    description: '',
     color: '#876531',
     icon: {id: 'svg/lorc/oak.svg'},
     components: ['aer', 'herba'],
@@ -214,6 +244,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'auram',
+    description: '',
     color: '#ffc0ff',
     icon: {id: 'svg/lorc/sun.svg'},
     components: ['aer', 'praecantatio'],
@@ -221,6 +252,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'corpus',
+    description: '',
     color: '#ee478d',
     icon: {id: 'svg/lorc/meat.svg'},
     components: ['bestia', 'mortuus'],
@@ -228,6 +260,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'exanimis',
+    description: '',
     color: '#3a4000',
     icon: {id: 'svg/lorc/death-zone.svg'},
     components: ['mortuus', 'motus'],
@@ -235,6 +268,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'spiritus',
+    description: '',
     color: '#ebebfb',
     icon: {id: 'svg/lorc/spectre.svg'},
     components: ['mortuus', 'victus'],
@@ -242,6 +276,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'vitium',
+    description: '',
     color: '#800080',
     icon: {id: 'svg/lorc/infested-mass.svg'},
     components: ['perditio', 'praecantatio'],
@@ -249,6 +284,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'cognitio',
+    description: '',
     color: '#ffc2b3',
     icon: {id: 'svg/lorc/brain.svg'},
     components: ['ignis', 'spiritus'],
@@ -256,6 +292,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'sensus',
+    description: '',
     color: '#0fd9ff',
     icon: {id: 'svg/lorc/owl.svg'},
     components: ['aer', 'spiritus'],
@@ -263,6 +300,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'humanus',
+    description: '',
     color: '#ffd7c0',
     icon: {id: 'svg/lorc/two-shadows.svg'},
     components: ['bestia', 'cognitio'],
@@ -270,6 +308,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'instrumentum',
+    description: '',
     color: '#4040ee',
     icon: {id: 'svg/lorc/dig-dug.svg'},
     components: ['humanus', 'ordo'],
@@ -277,6 +316,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'lucrum',
+    description: '',
     color: '#e6be44',
     icon: {id: 'svg/lorc/grab.svg'},
     components: ['fames', 'humanus'],
@@ -284,6 +324,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'messis',
+    description: '',
     color: '#e1b371',
     icon: {id: 'svg/lorc/wheat.svg'},
     components: ['herba', 'humanus'],
@@ -291,6 +332,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'perfodio',
+    description: '',
     color: '#dcd2d8',
     icon: {id: 'svg/lorc/mining.svg'},
     components: ['humanus', 'terra'],
@@ -298,6 +340,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'fabrico',
+    description: '',
     color: '#809d80',
     icon: {id: 'svg/lorc/hammer-nails.svg'},
     components: ['humanus', 'instrumentum'],
@@ -305,6 +348,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'machina',
+    description: '',
     color: '#8080a0',
     icon: {id: 'svg/lorc/gears.svg'},
     components: ['instrumentum', 'motus'],
@@ -312,6 +356,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'meto',
+    description: '',
     color: '#eead82',
     icon: {id: 'svg/delapouite/sickle.svg'},
     components: ['instrumentum', 'messis'],
@@ -319,6 +364,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'pannus',
+    description: '',
     color: '#eaeac2',
     icon: {id: 'svg/lorc/bandage-roll.svg'},
     components: ['bestia', 'instrumentum'],
@@ -326,6 +372,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'telum',
+    description: '',
     color: '#c05050',
     icon: {id: 'svg/lorc/plain-dagger.svg'},
     components: ['instrumentum', 'ignis'],
@@ -333,6 +380,7 @@ export const thaumcraft4Aspects: Aspect[] = [
   },
   {
     id: 'tutamen',
+    description: '',
     color: '#00c0c0',
     icon: {id: 'svg/lorc/breastplate.svg'},
     components: ['instrumentum', 'terra'],

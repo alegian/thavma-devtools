@@ -2,6 +2,7 @@ export type AspectId = string;
 
 export interface Aspect {
   id: AspectId;
+  description: string;
   color: string;
   icon: {
     id: string;

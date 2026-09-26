@@ -139,6 +139,7 @@ function App() {
     }
     const aspect: Aspect = {
       id: nextId,
+      description: '',
       color: '#ffffff',
       icon: {id: 'svg/sbed/help.svg'},
       components: null,

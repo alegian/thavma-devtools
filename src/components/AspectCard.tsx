@@ -84,6 +84,9 @@ export function AspectCard({
       <p className="mt-2 border-t border-line/70 pt-2 text-[10px] text-faint">
         Used {useCount} {useCount === 1 ? 'time' : 'times'}
       </p>
+      <p className="mt-2 truncate border-t border-line/70 pt-2 text-[10px] text-muted">
+        {aspect.description || '-'}
+      </p>
     </button>
   );
 }

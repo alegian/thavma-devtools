@@ -45,6 +45,10 @@ export function parseAspectJson(
     if (
       !record ||
       typeof record.id !== 'string' ||
+      !(
+        record.description === undefined ||
+        typeof record.description === 'string'
+      ) ||
       typeof record.color !== 'string' ||
       typeof record.icon !== 'object' ||
       record.icon === null ||
@@ -60,7 +64,10 @@ export function parseAspectJson(
   }
   if (shapeProblems.length > 0) return {data: null, problems: shapeProblems};
 
-  const data = value as Aspect[];
+  const data: Aspect[] = value.map(item => {
+    const aspect = item as Omit<Aspect, 'description'> & {description?: string};
+    return {...aspect, description: aspect.description ?? ''};
+  });
   const problems = validateAspects(data);
   return {
     data:

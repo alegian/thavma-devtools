@@ -4,6 +4,7 @@ import type {Aspect} from '../types/aspect';
 export const thaumcraft6Aspects: Aspect[] = [
   {
     id: 'aer',
+    description: '',
     color: '#ffff7e',
     icon: {id: 'svg/lorc/gold-shell.svg'},
     components: null,
@@ -11,6 +12,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'aqua',
+    description: '',
     color: '#3cd4fc',
     icon: {id: 'svg/lorc/at-sea.svg'},
     components: null,
@@ -18,6 +20,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'ignis',
+    description: '',
     color: '#ff5a01',
     icon: {id: 'svg/lorc/small-fire.svg'},
     components: null,
@@ -25,6 +28,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'ordo',
+    description: '',
     color: '#d5d4ec',
     icon: {id: 'svg/lorc/moebius-triangle.svg'},
     components: null,
@@ -32,6 +36,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'perditio',
+    description: '',
     color: '#404040',
     icon: {id: 'svg/lorc/cracked-disc.svg'},
     components: null,
@@ -39,6 +44,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'terra',
+    description: '',
     color: '#56c000',
     icon: {id: 'svg/lorc/mountains.svg'},
     components: null,
@@ -46,6 +52,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'gelum',
+    description: '',
     color: '#e1ffff',
     icon: {id: 'svg/lorc/ice-cube.svg'},
     components: ['ignis', 'perditio'],
@@ -53,6 +60,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'lux',
+    description: '',
     color: '#ffffc0',
     icon: {id: 'svg/lorc/candle-light.svg'},
     components: ['aer', 'ignis'],
@@ -60,6 +68,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'metallum',
+    description: '',
     color: '#b5b5cd',
     icon: {id: 'svg/lorc/metal-bar.svg'},
     components: ['terra', 'ordo'],
@@ -67,6 +76,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'motus',
+    description: '',
     color: '#cdccf4',
     icon: {id: 'svg/lorc/dodging.svg'},
     components: ['aer', 'ordo'],
@@ -74,6 +84,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'mortuus',
+    description: '',
     color: '#6a0005',
     icon: {id: 'svg/lorc/pirate-grave.svg'},
     components: ['perditio', 'aqua'],
@@ -81,6 +92,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'permutatio',
+    description: '',
     color: '#578357',
     icon: {id: 'svg/lorc/cycle.svg'},
     components: ['ordo', 'perditio'],
@@ -88,6 +100,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'potentia',
+    description: '',
     color: '#c0ffff',
     icon: {id: 'svg/lorc/thor-fist.svg'},
     components: ['ignis', 'ordo'],
@@ -95,6 +108,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'vacuos',
+    description: '',
     color: '#888888',
     icon: {id: 'svg/delapouite/circle.svg'},
     components: ['aer', 'perditio'],
@@ -102,6 +116,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'victus',
+    description: '',
     color: '#de0005',
     icon: {id: 'svg/lorc/shining-heart.svg'},
     components: ['aqua', 'terra'],
@@ -109,6 +124,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'vitreus',
+    description: '',
     color: '#80ffff',
     icon: {id: 'svg/lorc/emerald.svg'},
     components: ['aer', 'terra'],
@@ -116,6 +132,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'bestia',
+    description: '',
     color: '#9f6409',
     icon: {id: 'svg/lorc/wolf-head.svg'},
     components: ['motus', 'victus'],
@@ -123,6 +140,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'exanimis',
+    description: '',
     color: '#3a4000',
     icon: {id: 'svg/lorc/death-zone.svg'},
     components: ['mortuus', 'motus'],
@@ -130,6 +148,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'herba',
+    description: '',
     color: '#01ac00',
     icon: {id: 'svg/lorc/three-leaves.svg'},
     components: ['terra', 'victus'],
@@ -137,6 +156,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'instrumentum',
+    description: '',
     color: '#4040ee',
     icon: {id: 'svg/lorc/dig-dug.svg'},
     components: ['metallum', 'potentia'],
@@ -144,6 +164,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'praecantatio',
+    description: '',
     color: '#cf00ff',
     icon: {id: 'svg/lorc/fairy-wand.svg'},
     components: ['aer', 'potentia'],
@@ -151,6 +172,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'spiritus',
+    description: '',
     color: '#ebebfb',
     icon: {id: 'svg/lorc/spectre.svg'},
     components: ['mortuus', 'victus'],
@@ -158,6 +180,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'tenebrae',
+    description: '',
     color: '#222222',
     icon: {id: 'svg/lorc/eclipse.svg'},
     components: ['lux', 'vacuos'],
@@ -165,6 +188,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'vinculum',
+    description: '',
     color: '#9a8080',
     icon: {id: 'svg/lorc/wolf-trap.svg'},
     components: ['motus', 'perditio'],
@@ -172,6 +196,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'volatus',
+    description: '',
     color: '#e7e7d7',
     icon: {id: 'svg/lorc/feather.svg'},
     components: ['aer', 'motus'],
@@ -179,6 +204,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'alkimia',
+    description: '',
     color: '#23ac9d',
     icon: {id: 'svg/caro-asercion/round-potion.svg'},
     components: ['praecantatio', 'aqua'],
@@ -186,6 +212,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'alienis',
+    description: '',
     color: '#805080',
     icon: {id: 'svg/lorc/orbital.svg'},
     components: ['tenebrae', 'vacuos'],
@@ -193,6 +220,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'auram',
+    description: '',
     color: '#ffc0ff',
     icon: {id: 'svg/lorc/sun.svg'},
     components: ['praecantatio', 'aer'],
@@ -200,6 +228,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'aversio',
+    description: '',
     color: '#c05050',
     icon: {id: 'svg/lorc/broad-dagger.svg'},
     components: ['spiritus', 'perditio'],
@@ -207,6 +236,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'cognitio',
+    description: '',
     color: '#f9967f',
     icon: {id: 'svg/lorc/brain.svg'},
     components: ['spiritus', 'ignis'],
@@ -214,6 +244,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'desiderium',
+    description: '',
     color: '#e6be44',
     icon: {id: 'svg/lorc/grab.svg'},
     components: ['spiritus', 'vacuos'],
@@ -221,6 +252,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'fabrico',
+    description: '',
     color: '#809d80',
     icon: {id: 'svg/lorc/hammer-nails.svg'},
     components: ['permutatio', 'instrumentum'],
@@ -228,6 +260,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'humanus',
+    description: '',
     color: '#ffd7c0',
     icon: {id: 'svg/lorc/two-shadows.svg'},
     components: ['spiritus', 'victus'],
@@ -235,6 +268,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'machina',
+    description: '',
     color: '#8080a0',
     icon: {id: 'svg/lorc/gears.svg'},
     components: ['instrumentum', 'motus'],
@@ -242,6 +276,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'praemunio',
+    description: '',
     color: '#00c0c0',
     icon: {id: 'svg/lorc/breastplate.svg'},
     components: ['spiritus', 'terra'],
@@ -249,6 +284,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'sensus',
+    description: '',
     color: '#c0ffc0',
     icon: {id: 'svg/lorc/owl.svg'},
     components: ['aer', 'spiritus'],
@@ -256,6 +292,7 @@ export const thaumcraft6Aspects: Aspect[] = [
   },
   {
     id: 'vitium',
+    description: '',
     color: '#800080',
     icon: {id: 'svg/lorc/infested-mass.svg'},
     components: ['perditio', 'praecantatio'],

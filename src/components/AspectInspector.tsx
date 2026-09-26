@@ -147,6 +147,15 @@ export function AspectInspector({
           )}
         </label>
 
+        <label className="block text-[10px] font-semibold uppercase tracking-wider text-muted">
+          Description
+          <input
+            className={`${inputClass} mt-1.5 normal-case tracking-normal`}
+            value={aspect.description}
+            onChange={event => onUpdate({description: event.target.value})}
+          />
+        </label>
+
         <div>
           <label className="block text-[10px] font-semibold uppercase tracking-wider text-muted">
             Color
