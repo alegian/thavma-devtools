@@ -93,7 +93,7 @@ export const alexAspects: Aspect[] = [
   },
   {
     id: 'potentia',
-    description: 'fuel',
+    description: 'fuel, explosion',
     latent: false,
     color: '#c0ffff',
     icon: {id: 'svg/lorc/fission.svg'},
@@ -340,7 +340,7 @@ export const alexAspects: Aspect[] = [
     latent: false,
     color: '#eaeac2',
     icon: {id: 'svg/lorc/bandage-roll.svg'},
-    components: ['bestia', 'instrumentum'],
+    components: ['corpus', 'instrumentum'],
     opposite: null,
   },
   {
@@ -404,6 +404,24 @@ export const alexAspects: Aspect[] = [
     color: '#b468c0',
     icon: {id: 'svg/lorc/third-eye.svg'},
     components: ['lucrum', 'corpus'],
+    opposite: null,
+  },
+  {
+    id: 'pisces',
+    description: '',
+    latent: false,
+    color: '#2da1cc',
+    icon: {id: 'svg/delapouite/dolphin.svg'},
+    components: ['aqua', 'victus'],
+    opposite: null,
+  },
+  {
+    id: 'sensus',
+    description: 'art, beauty',
+    latent: false,
+    color: '#0fd9ff',
+    icon: {id: 'svg/lorc/butterfly.svg'},
+    components: ['aer', 'spiritus'],
     opposite: null,
   },
 ];
