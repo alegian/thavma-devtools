@@ -7,6 +7,7 @@ import {aspectTemplates} from './data/aspectTemplates';
 import {thaumcraft6Aspects} from './data/thaumcraft6Aspects';
 import {useAspectHistory} from './hooks/useAspectHistory';
 import {buildAspectGraph} from './logic/aspectGraph';
+import {validateCalculatedOpposites} from './logic/calculatedOpposite';
 import {downloadAspectJson, parseAspectJson} from './logic/importExport';
 import {validateAspects} from './logic/validation';
 import type {Aspect, GameIcon, ValidationProblem} from './types/aspect';
@@ -30,8 +31,14 @@ function App() {
   const fileInput = useRef<HTMLInputElement>(null);
   const graph = useMemo(() => buildAspectGraph(history.value), [history.value]);
   const problems = useMemo(
-    () => [...importProblems, ...validateAspects(history.value)],
-    [history.value, importProblems],
+    () => [
+      ...importProblems,
+      ...validateAspects(history.value),
+      ...(calculatedOpposites
+        ? validateCalculatedOpposites(history.value, graph)
+        : []),
+    ],
+    [history.value, importProblems, calculatedOpposites, graph],
   );
   const selectedAspect = selectedId
     ? (graph.byId.get(selectedId) ?? null)

@@ -1,4 +1,4 @@
-import type {Aspect, AspectId} from '../types/aspect';
+import type {Aspect, AspectId, ValidationProblem} from '../types/aspect';
 import type {AspectGraph} from './aspectGraph';
 
 export function getCalculatedOpposite(
@@ -63,4 +63,24 @@ export function getCalculatedOpposite(
   };
 
   return resolve(aspect, new Set());
+}
+
+export function validateCalculatedOpposites(
+  aspects: Aspect[],
+  graph: AspectGraph,
+): ValidationProblem[] {
+  return aspects.flatMap(aspect => {
+    try {
+      getCalculatedOpposite(aspect, graph);
+      return [];
+    } catch (error) {
+      return [
+        {
+          aspectId: aspect.id,
+          message: `Calculated opposite: ${error instanceof Error ? error.message : 'Calculation failed.'}`,
+          severity: 'error' as const,
+        },
+      ];
+    }
+  });
 }
