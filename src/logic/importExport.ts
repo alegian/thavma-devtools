@@ -49,6 +49,7 @@ export function parseAspectJson(
         record.description === undefined ||
         typeof record.description === 'string'
       ) ||
+      !(record.latent === undefined || typeof record.latent === 'boolean') ||
       typeof record.color !== 'string' ||
       typeof record.icon !== 'object' ||
       record.icon === null ||
@@ -65,8 +66,15 @@ export function parseAspectJson(
   if (shapeProblems.length > 0) return {data: null, problems: shapeProblems};
 
   const data: Aspect[] = value.map(item => {
-    const aspect = item as Omit<Aspect, 'description'> & {description?: string};
-    return {...aspect, description: aspect.description ?? ''};
+    const aspect = item as Omit<Aspect, 'description' | 'latent'> & {
+      description?: string;
+      latent?: boolean;
+    };
+    return {
+      ...aspect,
+      description: aspect.description ?? '',
+      latent: aspect.latent ?? false,
+    };
   });
   const problems = validateAspects(data);
   return {

@@ -3,6 +3,7 @@ export type AspectId = string;
 export interface Aspect {
   id: AspectId;
   description: string;
+  latent: boolean;
   color: string;
   icon: {
     id: string;

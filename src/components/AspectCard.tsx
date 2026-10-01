@@ -24,7 +24,7 @@ export function AspectCard({
     <button
       type="button"
       onClick={onSelect}
-      className="group relative w-48 shrink-0 overflow-hidden rounded-lg border border-line bg-card p-3 text-left transition-colors hover:bg-card-hover"
+      className={`group relative w-48 shrink-0 overflow-hidden rounded-lg border border-line p-3 text-left transition-colors ${aspect.latent ? 'border-dashed bg-panel hover:bg-panel-strong' : 'bg-card hover:bg-card-hover'}`}
       style={{
         borderColor: selected ? aspect.color : undefined,
         borderTopColor: aspect.color,
@@ -50,7 +50,9 @@ export function AspectCard({
         </div>
       </div>
       {aspect.components && (
-        <div className="mt-3 flex items-center gap-1.5 border-t border-line/70 pt-2 text-[10px] text-muted">
+        <div
+          className={`mt-3 flex items-center gap-1.5 border-t border-line/70 pt-2 text-[10px] text-muted ${aspect.latent ? 'border-dashed' : ''}`}
+        >
           {componentAspects.map((component, index) =>
             component ? (
               <span
@@ -81,11 +83,15 @@ export function AspectCard({
           {aspect.opposite ? aspectName(aspect.opposite) : 'none'}
         </span>
       </p>
-      <p className="mt-2 border-t border-line/70 pt-2 text-[10px] text-faint">
+      <p
+        className={`mt-2 border-t border-line/70 pt-2 text-[10px] text-faint ${aspect.latent ? 'border-dashed' : ''}`}
+      >
         Used {useCount} {useCount === 1 ? 'time' : 'times'}
       </p>
-      <p className="mt-2 truncate border-t border-line/70 pt-2 text-[10px] text-muted">
-        {aspect.description || '-'}
+      <p
+        className={`mt-2 truncate border-t border-line/70 pt-2 text-[10px] text-muted ${aspect.latent ? 'border-dashed' : ''}`}
+      >
+        {aspect.latent ? 'Latent' : aspect.description || '-'}
       </p>
     </button>
   );

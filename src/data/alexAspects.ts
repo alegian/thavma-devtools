@@ -4,6 +4,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'aer',
     description: 'air',
+    latent: false,
     color: '#ffff7e',
     icon: {id: 'svg/lorc/gold-shell.svg'},
     components: null,
@@ -12,6 +13,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'aqua',
     description: 'water',
+    latent: false,
     color: '#3cd4fc',
     icon: {id: 'svg/lorc/at-sea.svg'},
     components: null,
@@ -20,6 +22,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'ignis',
     description: 'fire',
+    latent: false,
     color: '#ff5a01',
     icon: {id: 'svg/lorc/small-fire.svg'},
     components: null,
@@ -28,6 +31,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'ordo',
     description: 'order',
+    latent: false,
     color: '#d5d4ec',
     icon: {id: 'svg/lorc/moebius-triangle.svg'},
     components: null,
@@ -36,6 +40,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'perditio',
     description: 'destruction',
+    latent: false,
     color: '#404040',
     icon: {id: 'svg/lorc/cracked-disc.svg'},
     components: null,
@@ -44,6 +49,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'terra',
     description: 'earth',
+    latent: false,
     color: '#56c000',
     icon: {id: 'svg/lorc/mountains.svg'},
     components: null,
@@ -52,6 +58,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'gelum',
     description: 'ice, snow',
+    latent: false,
     color: '#e1ffff',
     icon: {id: 'svg/lorc/beveled-star.svg'},
     components: ['aqua', 'ordo'],
@@ -60,6 +67,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'lux',
     description: '',
+    latent: false,
     color: '#fff663',
     icon: {id: 'svg/lorc/candle-light.svg'},
     components: ['aer', 'ignis'],
@@ -68,6 +76,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'motus',
     description: '',
+    latent: false,
     color: '#cdccf4',
     icon: {id: 'svg/lorc/dodging.svg'},
     components: ['aer', 'ordo'],
@@ -76,6 +85,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'permutatio',
     description: '',
+    latent: false,
     color: '#578357',
     icon: {id: 'svg/lorc/cycle.svg'},
     components: ['ordo', 'perditio'],
@@ -84,6 +94,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'potentia',
     description: '',
+    latent: false,
     color: '#c0ffff',
     icon: {id: 'svg/lorc/thor-fist.svg'},
     components: ['ignis', 'ordo'],
@@ -92,6 +103,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'vacuos',
     description: '',
+    latent: false,
     color: '#888888',
     icon: {id: 'svg/delapouite/circle.svg'},
     components: ['aer', 'perditio'],
@@ -100,6 +112,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'victus',
     description: 'life',
+    latent: false,
     color: '#de0005',
     icon: {id: 'svg/lorc/shining-heart.svg'},
     components: ['aqua', 'terra'],
@@ -108,6 +121,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'vitreus',
     description: 'crystals',
+    latent: false,
     color: '#80ffff',
     icon: {id: 'svg/lorc/emerald.svg'},
     components: ['ordo', 'terra'],
@@ -116,6 +130,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'bestia',
     description: 'animals',
+    latent: false,
     color: '#9f6409',
     icon: {id: 'svg/lorc/wolf-head.svg'},
     components: ['motus', 'victus'],
@@ -124,6 +139,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'fames',
     description: '',
+    latent: false,
     color: '#9a0305',
     icon: {id: 'svg/lorc/mouth-watering.svg'},
     components: ['vacuos', 'victus'],
@@ -132,6 +148,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'herba',
     description: 'plants',
+    latent: false,
     color: '#01ac00',
     icon: {id: 'svg/lorc/three-leaves.svg'},
     components: ['terra', 'victus'],
@@ -140,6 +157,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'iter',
     description: 'compass, minecarts',
+    latent: false,
     color: '#e0585b',
     icon: {id: 'svg/lorc/journey.svg'},
     components: ['motus', 'terra'],
@@ -148,6 +166,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'metallum',
     description: 'metals',
+    latent: false,
     color: '#b5b5cd',
     icon: {id: 'svg/lorc/metal-bar.svg'},
     components: ['terra', 'vitreus'],
@@ -156,6 +175,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'mortuus',
     description: '',
+    latent: false,
     color: '#887788',
     icon: {id: 'svg/lorc/pirate-grave.svg'},
     components: ['perditio', 'victus'],
@@ -164,6 +184,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'praecantatio',
     description: 'magic',
+    latent: false,
     color: '#9700c0',
     icon: {id: 'svg/lorc/fairy-wand.svg'},
     components: ['potentia', 'vacuos'],
@@ -172,6 +193,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'tenebrae',
     description: '',
+    latent: false,
     color: '#222222',
     icon: {id: 'svg/lorc/eclipse.svg'},
     components: ['lux', 'vacuos'],
@@ -180,6 +202,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'vinculum',
     description: 'cobweb, tripwire, trapdoor',
+    latent: false,
     color: '#9a8080',
     icon: {id: 'svg/lorc/wolf-trap.svg'},
     components: ['motus', 'perditio'],
@@ -188,6 +211,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'volatus',
     description: '',
+    latent: false,
     color: '#e7e7d7',
     icon: {id: 'svg/lorc/feather.svg'},
     components: ['aer', 'motus'],
@@ -196,6 +220,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'alienis',
     description: '',
+    latent: false,
     color: '#805080',
     icon: {id: 'svg/lorc/orbital.svg'},
     components: ['tenebrae', 'vacuos'],
@@ -204,6 +229,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'arbor',
     description: 'trees',
+    latent: false,
     color: '#876531',
     icon: {id: 'svg/lorc/oak.svg'},
     components: ['aer', 'herba'],
@@ -212,6 +238,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'auram',
     description: '',
+    latent: false,
     color: '#ffc0ff',
     icon: {id: 'svg/lorc/sun.svg'},
     components: ['aer', 'praecantatio'],
@@ -220,6 +247,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'corpus',
     description: 'mob drops',
+    latent: false,
     color: '#ee478d',
     icon: {id: 'svg/lorc/meat.svg'},
     components: ['bestia', 'mortuus'],
@@ -228,6 +256,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'exanimis',
     description: '',
+    latent: false,
     color: '#3a4000',
     icon: {id: 'svg/lorc/death-zone.svg'},
     components: ['mortuus', 'motus'],
@@ -236,6 +265,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'spiritus',
     description: '',
+    latent: false,
     color: '#ebebfb',
     icon: {id: 'svg/lorc/spectre.svg'},
     components: ['mortuus', 'victus'],
@@ -244,6 +274,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'vitium',
     description: 'taint',
+    latent: false,
     color: '#800080',
     icon: {id: 'svg/lorc/infested-mass.svg'},
     components: ['perditio', 'praecantatio'],
@@ -252,6 +283,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'cognitio',
     description: '',
+    latent: false,
     color: '#ffc2b3',
     icon: {id: 'svg/lorc/brain.svg'},
     components: ['ignis', 'spiritus'],
@@ -260,6 +292,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'sensus',
     description: '',
+    latent: false,
     color: '#0fd9ff',
     icon: {id: 'svg/lorc/owl.svg'},
     components: ['aer', 'spiritus'],
@@ -268,6 +301,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'humanus',
     description: 'players, villagers',
+    latent: false,
     color: '#ffd7c0',
     icon: {id: 'svg/lorc/two-shadows.svg'},
     components: ['bestia', 'cognitio'],
@@ -276,6 +310,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'instrumentum',
     description: 'tools',
+    latent: false,
     color: '#4040ee',
     icon: {id: 'svg/lorc/dig-dug.svg'},
     components: ['humanus', 'ordo'],
@@ -284,6 +319,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'lucrum',
     description: 'treasure',
+    latent: false,
     color: '#e6be44',
     icon: {id: 'svg/lorc/grab.svg'},
     components: ['fames', 'humanus'],
@@ -292,6 +328,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'messis',
     description: 'crops',
+    latent: false,
     color: '#e1b371',
     icon: {id: 'svg/lorc/wheat.svg'},
     components: ['herba', 'humanus'],
@@ -300,6 +337,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'fabrico',
     description: 'crafting stations',
+    latent: false,
     color: '#809d80',
     icon: {id: 'svg/lorc/hammer-nails.svg'},
     components: ['humanus', 'instrumentum'],
@@ -308,6 +346,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'machina',
     description: 'redstone contraptions',
+    latent: false,
     color: '#8080a0',
     icon: {id: 'svg/lorc/gears.svg'},
     components: ['instrumentum', 'motus'],
@@ -316,6 +355,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'pannus',
     description: 'string, leather, wool',
+    latent: false,
     color: '#eaeac2',
     icon: {id: 'svg/lorc/bandage-roll.svg'},
     components: ['bestia', 'instrumentum'],
@@ -324,6 +364,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'telum',
     description: 'weapons',
+    latent: false,
     color: '#c05050',
     icon: {id: 'svg/lorc/plain-dagger.svg'},
     components: ['instrumentum', 'ignis'],
@@ -332,6 +373,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'tutamen',
     description: 'protection, healing',
+    latent: false,
     color: '#00c0c0',
     icon: {id: 'svg/lorc/breastplate.svg'},
     components: ['instrumentum', 'terra'],
@@ -340,6 +382,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'alkimia',
     description: 'potions',
+    latent: false,
     color: '#23ac9d',
     icon: {id: 'svg/caro-asercion/round-potion.svg'},
     components: ['praecantatio', 'aqua'],
@@ -348,6 +391,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'tempus',
     description: 'clock, bed',
+    latent: false,
     color: '#cc668e',
     icon: {id: 'svg/lorc/empty-hourglass.svg'},
     components: ['iter', 'vacuos'],
@@ -356,6 +400,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'densitas',
     description: 'compressed blocks',
+    latent: false,
     color: '#cacaca',
     icon: {id: 'svg/lorc/mesh-ball.svg'},
     components: ['ordo', 'fabrico'],
@@ -364,6 +409,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'pulvis',
     description: 'dusts',
+    latent: false,
     color: '#6f3318',
     icon: {id: 'svg/lorc/powder.svg'},
     components: ['perditio', 'terra'],
@@ -372,6 +418,7 @@ export const alexAspects: Aspect[] = [
   {
     id: 'rosaura',
     description: 'boss drops, heads',
+    latent: false,
     color: '#b468c0',
     icon: {id: 'svg/lorc/third-eye.svg'},
     components: ['lucrum', 'corpus'],

@@ -156,6 +156,26 @@ export function AspectInspector({
           />
         </label>
 
+        <div className="flex items-center justify-between rounded-md border border-line bg-black/15 p-3">
+          <div>
+            <p className="text-xs font-semibold text-ink">Latent aspect</p>
+            <p className="mt-0.5 text-[10px] text-muted">
+              Latent aspects are used only for combinations.
+            </p>
+          </div>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={aspect.latent}
+            onClick={() => onUpdate({latent: !aspect.latent})}
+            className={`relative h-6 w-11 rounded-full border transition-colors ${aspect.latent ? 'border-amber/70 bg-amber/30' : 'border-line bg-field'}`}
+          >
+            <span
+              className={`absolute top-1 size-3.5 rounded-full bg-ink transition-all ${aspect.latent ? 'left-6' : 'left-1'}`}
+            />
+          </button>
+        </div>
+
         <div>
           <label className="block text-[10px] font-semibold uppercase tracking-wider text-muted">
             Color

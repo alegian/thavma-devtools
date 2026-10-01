@@ -4,6 +4,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'acidum',
     description: '',
+    latent: false,
     color: '#89f000',
     icon: {id: 'svg/lorc/poison-bottle.svg'},
     components: ['aqua', 'perditio'],
@@ -12,6 +13,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'alienis',
     description: '',
+    latent: false,
     color: '#805080',
     icon: {id: 'svg/lorc/orbital.svg'},
     components: ['fabrico', 'mortuus'],
@@ -20,6 +22,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'aqua',
     description: '',
+    latent: false,
     color: '#3cd4fc',
     icon: {id: 'svg/lorc/at-sea.svg'},
     components: null,
@@ -28,6 +31,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'arbor',
     description: '',
+    latent: false,
     color: '#876531',
     icon: {id: 'svg/lorc/oak.svg'},
     components: ['densitas', 'herba'],
@@ -36,6 +40,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'bestia',
     description: '',
+    latent: false,
     color: '#9f6409',
     icon: {id: 'svg/lorc/wolf-head.svg'},
     components: ['corpus', 'telum'],
@@ -44,6 +49,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'cognitio',
     description: '',
+    latent: false,
     color: '#ffc2b3',
     icon: {id: 'svg/lorc/brain.svg'},
     components: ['humanus', 'potentia'],
@@ -52,6 +58,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'corpus',
     description: '',
+    latent: false,
     color: '#ee478d',
     icon: {id: 'svg/lorc/meat.svg'},
     components: ['permutatio', 'vitalis'],
@@ -60,6 +67,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'densitas',
     description: '',
+    latent: false,
     color: '#cacaca',
     icon: {id: 'svg/lorc/mesh-ball.svg'},
     components: ['migmatis', 'nix'],
@@ -68,6 +76,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'directrix',
     description: '',
+    latent: false,
     color: '#113e9a',
     icon: {id: 'svg/lorc/splashy-stream.svg'},
     components: ['aqua', 'ordo'],
@@ -76,6 +85,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'exanimis',
     description: '',
+    latent: false,
     color: '#3a4000',
     icon: {id: 'svg/lorc/death-zone.svg'},
     components: ['mortuus', 'tempus'],
@@ -84,6 +94,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'fabrico',
     description: '',
+    latent: false,
     color: '#809d80',
     icon: {id: 'svg/lorc/hammer-nails.svg'},
     components: ['humanus', 'ultramai'],
@@ -92,6 +103,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'fames',
     description: '',
+    latent: false,
     color: '#9a0305',
     icon: {id: 'svg/lorc/mouth-watering.svg'},
     components: ['ignis', 'vitalis'],
@@ -100,6 +112,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'gelum',
     description: '',
+    latent: false,
     color: '#e1ffff',
     icon: {id: 'svg/lorc/ice-cube.svg'},
     components: ['ignis', 'perditio'],
@@ -108,6 +121,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'herba',
     description: '',
+    latent: false,
     color: '#01ac00',
     icon: {id: 'svg/lorc/three-leaves.svg'},
     components: ['aqua', 'vitalis'],
@@ -116,6 +130,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'humanus',
     description: '',
+    latent: false,
     color: '#ffd7c0',
     icon: {id: 'svg/lorc/two-shadows.svg'},
     components: ['corpus', 'spiritus'],
@@ -124,6 +139,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'ignis',
     description: '',
+    latent: false,
     color: '#ff5a01',
     icon: {id: 'svg/lorc/small-fire.svg'},
     components: null,
@@ -132,6 +148,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'instrumentum',
     description: '',
+    latent: false,
     color: '#4040ee',
     icon: {id: 'svg/lorc/dig-dug.svg'},
     components: ['humanus', 'metallum'],
@@ -140,6 +157,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'itinera',
     description: '',
+    latent: false,
     color: '#e0585b',
     icon: {id: 'svg/lorc/journey.svg'},
     components: ['directrix', 'motus'],
@@ -148,6 +166,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'lucrum',
     description: '',
+    latent: false,
     color: '#e6be44',
     icon: {id: 'svg/lorc/grab.svg'},
     components: ['fames', 'humanus'],
@@ -156,6 +175,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'lux',
     description: '',
+    latent: false,
     color: '#fff663',
     icon: {id: 'svg/lorc/candle-light.svg'},
     components: ['ignis', 'ventus'],
@@ -164,6 +184,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'machina',
     description: '',
+    latent: false,
     color: '#8080a0',
     icon: {id: 'svg/lorc/gears.svg'},
     components: ['tempus', 'vinculum'],
@@ -172,6 +193,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'messis',
     description: '',
+    latent: false,
     color: '#e1b371',
     icon: {id: 'svg/lorc/wheat.svg'},
     components: ['humanus', 'herba'],
@@ -180,6 +202,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'metallum',
     description: '',
+    latent: false,
     color: '#b5b5cd',
     icon: {id: 'svg/lorc/metal-bar.svg'},
     components: ['migmatis', 'vitreus'],
@@ -188,6 +211,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'meto',
     description: '',
+    latent: false,
     color: '#eead82',
     icon: {id: 'svg/delapouite/sickle.svg'},
     components: ['instrumentum', 'messis'],
@@ -196,6 +220,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'migmatis',
     description: '',
+    latent: false,
     color: '#c3410b',
     icon: {id: 'svg/lorc/burst-blob.svg'},
     components: ['ignis', 'terra'],
@@ -204,6 +229,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'mortuus',
     description: '',
+    latent: false,
     color: '#887788',
     icon: {id: 'svg/lorc/pirate-grave.svg'},
     components: ['humanus', 'tempus'],
@@ -212,6 +238,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'motus',
     description: '',
+    latent: false,
     color: '#cdccf4',
     icon: {id: 'svg/lorc/dodging.svg'},
     components: ['ordo', 'ventus'],
@@ -220,6 +247,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'nix',
     description: '',
+    latent: false,
     color: '#bec0c1',
     icon: {id: 'svg/lorc/beveled-star.svg'},
     components: ['gelum', 'pulvis'],
@@ -228,6 +256,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'ordo',
     description: '',
+    latent: false,
     color: '#d5d4ec',
     icon: {id: 'svg/lorc/moebius-triangle.svg'},
     components: null,
@@ -236,6 +265,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'perditio',
     description: '',
+    latent: false,
     color: '#404040',
     icon: {id: 'svg/lorc/cracked-disc.svg'},
     components: null,
@@ -244,6 +274,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'perfodio',
     description: '',
+    latent: false,
     color: '#dcd2d8',
     icon: {id: 'svg/lorc/mining.svg'},
     components: ['instrumentum', 'metallum'],
@@ -252,6 +283,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'permutatio',
     description: '',
+    latent: false,
     color: '#578357',
     icon: {id: 'svg/lorc/cycle.svg'},
     components: ['ordo', 'perditio'],
@@ -260,6 +292,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'potentia',
     description: '',
+    latent: false,
     color: '#c0ffff',
     icon: {id: 'svg/lorc/thor-fist.svg'},
     components: ['ignis', 'ordo'],
@@ -268,6 +301,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'praecantatio',
     description: '',
+    latent: false,
     color: '#9700c0',
     icon: {id: 'svg/lorc/fairy-wand.svg'},
     components: ['directrix', 'potentia'],
@@ -276,6 +310,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'pulvis',
     description: '',
+    latent: false,
     color: '#6f3318',
     icon: {id: 'svg/lorc/crumbling-ball.svg'},
     components: ['perditio', 'terra'],
@@ -284,6 +319,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'purima',
     description: '',
+    latent: false,
     color: '#529fc8',
     icon: {id: 'svg/lorc/crystalize.svg'},
     components: ['vitalis', 'vitreus'],
@@ -292,6 +328,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'rosaura',
     description: '',
+    latent: false,
     color: '#b468c0',
     icon: {id: 'svg/lorc/third-eye.svg'},
     components: ['machina', 'spiritus'],
@@ -300,6 +337,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'sano',
     description: '',
+    latent: false,
     color: '#ff2f34',
     icon: {id: 'svg/lorc/heart-bottle.svg'},
     components: ['humanus', 'tutamen'],
@@ -308,6 +346,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'sensus',
     description: '',
+    latent: false,
     color: '#0fd9ff',
     icon: {id: 'svg/lorc/owl.svg'},
     components: ['humanus', 'acidum'],
@@ -316,6 +355,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'sideralis',
     description: '',
+    latent: false,
     color: '#33da80',
     icon: {id: 'svg/delapouite/polar-star.svg'},
     components: ['aqua', 'lux'],
@@ -324,6 +364,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'somnium',
     description: '',
+    latent: false,
     color: '#8c6dcc',
     icon: {id: 'svg/delapouite/dream-catcher.svg'},
     components: ['ultramai', 'volatus'],
@@ -332,6 +373,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'spica',
     description: '',
+    latent: false,
     color: '#b5b925',
     icon: {id: 'svg/lorc/spiked-tail.svg'},
     components: ['ordo', 'pulvis'],
@@ -340,6 +382,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'spiritus',
     description: '',
+    latent: false,
     color: '#ebebfb',
     icon: {id: 'svg/lorc/spectre.svg'},
     components: ['lux', 'permutatio'],
@@ -348,6 +391,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'telum',
     description: '',
+    latent: false,
     color: '#c05050',
     icon: {id: 'svg/lorc/plain-dagger.svg'},
     components: ['metallum', 'spica'],
@@ -356,6 +400,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'tempestas',
     description: '',
+    latent: false,
     color: '#ffffff',
     icon: {id: 'svg/lorc/lightning-storm.svg'},
     components: ['aqua', 'ventus'],
@@ -364,6 +409,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'tempus',
     description: '',
+    latent: false,
     color: '#cc668e',
     icon: {id: 'svg/lorc/empty-hourglass.svg'},
     components: ['tempestas', 'vacuos'],
@@ -372,6 +418,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'tenebrae',
     description: '',
+    latent: false,
     color: '#222222',
     icon: {id: 'svg/lorc/eclipse.svg'},
     components: ['lux', 'vacuos'],
@@ -380,6 +427,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'terra',
     description: '',
+    latent: false,
     color: '#56c000',
     icon: {id: 'svg/lorc/mountains.svg'},
     components: null,
@@ -388,6 +436,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'textura',
     description: '',
+    latent: false,
     color: '#bb78c1',
     icon: {id: 'svg/delapouite/ninja-armor.svg'},
     components: ['humanus', 'sideralis'],
@@ -396,6 +445,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'tutamen',
     description: '',
+    latent: false,
     color: '#00c0c0',
     icon: {id: 'svg/lorc/breastplate.svg'},
     components: ['acidum', 'gelum'],
@@ -404,6 +454,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'ultramai',
     description: '',
+    latent: false,
     color: '#e2d963',
     icon: {id: 'svg/lorc/spiky-explosion.svg'},
     components: ['ignis', 'lux'],
@@ -412,6 +463,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'vacuos',
     description: '',
+    latent: false,
     color: '#888888',
     icon: {id: 'svg/delapouite/circle.svg'},
     components: ['perditio', 'ventus'],
@@ -420,6 +472,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'ventus',
     description: '',
+    latent: false,
     color: '#ffff7e',
     icon: {id: 'svg/lorc/gold-shell.svg'},
     components: null,
@@ -428,6 +481,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'vinculum',
     description: '',
+    latent: false,
     color: '#9a8080',
     icon: {id: 'svg/lorc/wolf-trap.svg'},
     components: ['motus', 'perditio'],
@@ -436,6 +490,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'vitalis',
     description: '',
+    latent: false,
     color: '#de0005',
     icon: {id: 'svg/lorc/shining-heart.svg'},
     components: ['aqua', 'terra'],
@@ -444,6 +499,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'vitreus',
     description: '',
+    latent: false,
     color: '#80ffff',
     icon: {id: 'svg/lorc/emerald.svg'},
     components: ['ordo', 'terra'],
@@ -452,6 +508,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'volatus',
     description: '',
+    latent: false,
     color: '#e7e7d7',
     icon: {id: 'svg/lorc/feather.svg'},
     components: ['itinera', 'tempestas'],
@@ -460,6 +517,7 @@ export const tobiasAspects: Aspect[] = [
   {
     id: 'vomica',
     description: '',
+    latent: false,
     color: '#800080',
     icon: {id: 'svg/lorc/infested-mass.svg'},
     components: ['humanus', 'praecantatio'],
