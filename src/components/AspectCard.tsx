@@ -1,5 +1,6 @@
 import type {Aspect} from '../types/aspect';
 import type {AspectGraph} from '../logic/aspectGraph';
+import {getCalculatedOpposite} from '../logic/calculatedOpposite';
 import {aspectName} from '../logic/format';
 import {AspectIcon} from './AspectIcon';
 
@@ -8,6 +9,7 @@ interface AspectCardProps {
   graph: AspectGraph;
   selected: boolean;
   onSelect: () => void;
+  calculatedOpposites: boolean;
 }
 
 export function AspectCard({
@@ -15,11 +17,22 @@ export function AspectCard({
   graph,
   selected,
   onSelect,
+  calculatedOpposites,
 }: AspectCardProps) {
   const componentAspects = (aspect.components ?? []).map(id =>
     graph.byId.get(id),
   );
   const useCount = graph.componentUseCounts.get(aspect.id) ?? 0;
+  let oppositeId = aspect.opposite;
+  let oppositeError: string | null = null;
+  if (calculatedOpposites) {
+    try {
+      oppositeId = getCalculatedOpposite(aspect, graph)?.id ?? null;
+    } catch (error) {
+      oppositeError =
+        error instanceof Error ? error.message : 'Calculated opposite failed.';
+    }
+  }
   return (
     <button
       type="button"
@@ -77,10 +90,17 @@ export function AspectCard({
           )}
         </div>
       )}
-      <p className="mt-2 truncate text-[10px] text-faint">
+      <p
+        className="mt-2 truncate text-[10px] text-faint"
+        title={oppositeError ?? undefined}
+      >
         Opposes{' '}
-        <span className="text-muted">
-          {aspect.opposite ? aspectName(aspect.opposite) : 'none'}
+        <span className={oppositeError ? 'text-danger' : 'text-muted'}>
+          {oppositeError
+            ? oppositeError
+            : oppositeId
+              ? aspectName(oppositeId)
+              : 'none'}
         </span>
       </p>
       <p

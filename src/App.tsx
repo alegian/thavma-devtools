@@ -24,6 +24,7 @@ function loadInitialAspects() {
 function App() {
   const history = useAspectHistory<Aspect[]>(loadInitialAspects());
   const [selectedId, setSelectedId] = useState<string | null>('motus');
+  const [calculatedOpposites, setCalculatedOpposites] = useState(false);
   const [icons, setIcons] = useState<GameIcon[]>([]);
   const [importProblems, setImportProblems] = useState<ValidationProblem[]>([]);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -221,6 +222,8 @@ function App() {
         onExport={() => downloadAspectJson(history.value)}
         templates={aspectTemplates}
         onReset={reset}
+        calculatedOpposites={calculatedOpposites}
+        onCalculatedOppositesChange={setCalculatedOpposites}
       />
       <input
         ref={fileInput}
@@ -240,6 +243,7 @@ function App() {
             graph={graph}
             selectedId={selectedId}
             onSelect={setSelectedId}
+            calculatedOpposites={calculatedOpposites}
           />
           <ValidationPanel problems={problems} onSelect={setSelectedId} />
         </div>

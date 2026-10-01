@@ -8,6 +8,7 @@ interface AspectRowProps {
   graph: AspectGraph;
   selectedId: string | null;
   onSelect: (id: string) => void;
+  calculatedOpposites: boolean;
 }
 
 export function AspectRow({
@@ -16,6 +17,7 @@ export function AspectRow({
   graph,
   selectedId,
   onSelect,
+  calculatedOpposites,
 }: AspectRowProps) {
   const label =
     depth === null ? 'Unresolved' : depth === 0 ? 'Primal' : `Depth ${depth}`;
@@ -39,6 +41,7 @@ export function AspectRow({
             graph={graph}
             selected={selectedId === aspect.id}
             onSelect={() => onSelect(aspect.id)}
+            calculatedOpposites={calculatedOpposites}
           />
         ))}
       </div>

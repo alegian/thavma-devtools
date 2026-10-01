@@ -14,6 +14,8 @@ interface ToolbarProps {
   onExport: () => void;
   templates: AspectTemplate[];
   onReset: (templateId: string) => void;
+  calculatedOpposites: boolean;
+  onCalculatedOppositesChange: (enabled: boolean) => void;
 }
 
 const buttonClass =
@@ -34,6 +36,8 @@ export function Toolbar({
   onExport,
   templates,
   onReset,
+  calculatedOpposites,
+  onCalculatedOppositesChange,
 }: ToolbarProps) {
   const [templateMenuOpen, setTemplateMenuOpen] = useState(false);
 
@@ -48,6 +52,24 @@ export function Toolbar({
           {aspectCount} {aspectCount === 1 ? 'aspect' : 'aspects'}
         </span>
       </div>
+      <label className="flex cursor-pointer items-center gap-2 rounded-md border border-line bg-black/15 px-2.5 py-1.5 text-[10px] font-semibold text-muted">
+        <span>Basic opposites</span>
+        <input
+          type="checkbox"
+          role="switch"
+          aria-label="Use calculated opposites"
+          className="peer sr-only"
+          checked={calculatedOpposites}
+          onChange={event =>
+            onCalculatedOppositesChange(event.currentTarget.checked)
+          }
+        />
+        <span className="relative h-5 w-9 rounded-full bg-white/10 transition-colors peer-checked:bg-amber/70 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-amber after:absolute after:left-0.5 after:top-0.5 after:size-4 after:rounded-full after:bg-muted after:transition-transform after:content-[''] peer-checked:after:translate-x-4 peer-checked:after:bg-ink" />
+        <span className={calculatedOpposites ? 'text-amber' : undefined}>
+          Calculated opposites
+        </span>
+      </label>
+      <span className="mx-1 hidden h-6 w-px bg-line sm:block" />
       <NewAspectDropdown
         templates={templates}
         onCreate={onCreate}
