@@ -1,4 +1,5 @@
 import type {Aspect} from '../types/aspect';
+import {alexAspects} from './alexAspects';
 import {thaumcraft4Aspects} from './thaumcraft4Aspects';
 import {thaumcraft6Aspects} from './thaumcraft6Aspects';
 import {tobiasAspects} from './tobiasAspects';
@@ -11,6 +12,12 @@ export interface AspectTemplate {
 }
 
 export const aspectTemplates: AspectTemplate[] = [
+  {
+    id: 'alex',
+    name: 'Alex',
+    description: 'a combination alex made',
+    create: () => structuredClone(alexAspects),
+  },
   {
     id: 'thaumcraft-4',
     name: 'Thaumcraft 4',
