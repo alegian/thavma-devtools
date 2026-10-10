@@ -118,9 +118,10 @@ function App() {
       current.map(aspect => ({
         ...aspect,
         id: aspect.id === previousId ? nextId : aspect.id,
-        components: aspect.components?.map(component =>
-          component === previousId ? nextId : component,
-        ) as [string, string] | null,
+        components:
+          (aspect.components?.map(component =>
+            component === previousId ? nextId : component,
+          ) as [string, string] | undefined) ?? null,
         opposite: aspect.opposite === previousId ? nextId : aspect.opposite,
       })),
     );

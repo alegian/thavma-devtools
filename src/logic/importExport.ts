@@ -38,6 +38,7 @@ export function parseAspectJson(
         : null;
     const components = record?.components;
     const validComponents =
+      components === undefined ||
       components === null ||
       (Array.isArray(components) &&
         components.length === 2 &&
@@ -66,14 +67,19 @@ export function parseAspectJson(
   if (shapeProblems.length > 0) return {data: null, problems: shapeProblems};
 
   const data: Aspect[] = value.map(item => {
-    const aspect = item as Omit<Aspect, 'description' | 'latent'> & {
+    const aspect = item as Omit<
+      Aspect,
+      'description' | 'latent' | 'components'
+    > & {
       description?: string;
       latent?: boolean;
+      components?: Aspect['components'];
     };
     return {
       ...aspect,
       description: aspect.description ?? '',
       latent: aspect.latent ?? false,
+      components: aspect.components ?? null,
     };
   });
   const problems = validateAspects(data);
