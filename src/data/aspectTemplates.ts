@@ -1,5 +1,6 @@
 import type {Aspect} from '../types/aspect';
 import {alexAspects} from './alexAspects';
+import {alex2Aspects} from './alex2Aspects';
 import {thaumcraft4Aspects} from './thaumcraft4Aspects';
 import {thaumcraft6Aspects} from './thaumcraft6Aspects';
 import {tobiasAspects} from './tobiasAspects';
@@ -17,6 +18,12 @@ export const aspectTemplates: AspectTemplate[] = [
     name: 'Alex',
     description: 'a combination alex made',
     create: () => structuredClone(alexAspects),
+  },
+  {
+    id: 'alex-2',
+    name: 'Alex-2',
+    description: 'A custom 48-aspect composition system.',
+    create: () => structuredClone(alex2Aspects),
   },
   {
     id: 'thaumcraft-4',
