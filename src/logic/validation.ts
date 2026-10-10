@@ -10,6 +10,14 @@ export function validateAspects(aspects: Aspect[]): ValidationProblem[] {
   for (const aspect of aspects)
     counts.set(aspect.id, (counts.get(aspect.id) ?? 0) + 1);
   const ids = new Set(aspects.map(aspect => aspect.id));
+  const compositions = new Map<string, Aspect[]>();
+  for (const aspect of aspects) {
+    if (!aspect.components) continue;
+    const key = JSON.stringify([...aspect.components].sort());
+    const group = compositions.get(key) ?? [];
+    group.push(aspect);
+    compositions.set(key, group);
+  }
 
   for (const aspect of aspects) {
     if (!idPattern.test(aspect.id))
@@ -82,6 +90,18 @@ export function validateAspects(aspects: Aspect[]): ValidationProblem[] {
         message: 'Composition contains a dependency cycle.',
         severity: 'error',
       });
+    }
+    if (aspect.components) {
+      const key = JSON.stringify([...aspect.components].sort());
+      const others = (compositions.get(key) ?? []).filter(
+        candidate => candidate !== aspect,
+      );
+      if (others.length > 0)
+        problems.push({
+          aspectId: aspect.id,
+          message: `Same components as ${others.map(candidate => `“${candidate.id}”`).join(', ')}.`,
+          severity: 'warning',
+        });
     }
   }
   return problems;
