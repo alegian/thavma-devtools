@@ -12,6 +12,8 @@ interface ToolbarProps {
   onRedo: () => void;
   onImport: () => void;
   onExport: () => void;
+  onDownloadIcons: () => void;
+  iconDownloadProgress: string | null;
   templates: AspectTemplate[];
   onReset: (templateId: string) => void;
   calculatedOpposites: boolean;
@@ -34,6 +36,8 @@ export function Toolbar({
   onRedo,
   onImport,
   onExport,
+  onDownloadIcons,
+  iconDownloadProgress,
   templates,
   onReset,
   calculatedOpposites,
@@ -124,6 +128,14 @@ export function Toolbar({
       </button>
       <button className={buttonClass} onClick={onExport}>
         Export JSON
+      </button>
+      <button
+        className={buttonClass}
+        onClick={onDownloadIcons}
+        disabled={iconDownloadProgress !== null || aspectCount === 0}
+        aria-busy={iconDownloadProgress !== null}
+      >
+        {iconDownloadProgress ?? 'Download icons'}
       </button>
       <div className="relative">
         <button

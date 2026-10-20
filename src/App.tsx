@@ -10,6 +10,7 @@ import {buildAspectGraph} from './logic/aspectGraph';
 import {validateCalculatedOpposites} from './logic/calculatedOpposite';
 import {downloadAspectJson, parseAspectJson} from './logic/importExport';
 import {validateAspects} from './logic/validation';
+import {downloadIcons} from './logic/downloadIcons';
 import type {Aspect, GameIcon, ValidationProblem} from './types/aspect';
 
 const storageKey = 'aspectarium.dataset.v1';
@@ -27,6 +28,9 @@ function App() {
   const [selectedId, setSelectedId] = useState<string | null>('motus');
   const [calculatedOpposites, setCalculatedOpposites] = useState(false);
   const [icons, setIcons] = useState<GameIcon[]>([]);
+  const [iconDownloadProgress, setIconDownloadProgress] = useState<
+    string | null
+  >(null);
   const [importProblems, setImportProblems] = useState<ValidationProblem[]>([]);
   const fileInput = useRef<HTMLInputElement>(null);
   const graph = useMemo(() => buildAspectGraph(history.value), [history.value]);
@@ -138,6 +142,25 @@ function App() {
     setImportProblems([]);
   };
 
+  const exportIcons = async () => {
+    setIconDownloadProgress('Preparing icons…');
+    try {
+      await downloadIcons(history.value, {}, (completed, total) =>
+        setIconDownloadProgress(`Downloading icons ${completed}/${total}…`),
+      );
+    } catch (error) {
+      setImportProblems(current => [
+        ...current,
+        {
+          severity: 'error',
+          message: `Icon download failed: ${error instanceof Error ? error.message : String(error)}`,
+        },
+      ]);
+    } finally {
+      setIconDownloadProgress(null);
+    }
+  };
+
   const createAspect = () => {
     const baseId = 'new-aspect';
     let nextId = baseId;
@@ -228,6 +251,8 @@ function App() {
         onRedo={history.redo}
         onImport={() => fileInput.current?.click()}
         onExport={() => downloadAspectJson(history.value)}
+        onDownloadIcons={() => void exportIcons()}
+        iconDownloadProgress={iconDownloadProgress}
         templates={aspectTemplates}
         onReset={reset}
         calculatedOpposites={calculatedOpposites}

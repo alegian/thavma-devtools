@@ -1,64 +1,20 @@
 #!/usr/bin/env node
 
-import {createWriteStream} from 'node:fs';
-import {
-  mkdir,
-  mkdtemp,
-  readdir,
-  readFile,
-  rename,
-  rm,
-  writeFile,
-} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {basename, dirname, join, relative, resolve, sep} from 'node:path';
-import {Readable} from 'node:stream';
-import {finished} from 'node:stream/promises';
-import {spawn} from 'node:child_process';
+import {mkdir, rename, rm, writeFile} from 'node:fs/promises';
+import {basename, dirname, join, resolve} from 'node:path';
 import process from 'node:process';
+import {strFromU8, unzipSync} from 'fflate';
 
 const repository = 'https://github.com/game-icons/icons';
-const archiveUrl = `${repository}/archive/refs/heads/master.tar.gz`;
+// Use the website's optimized paths, not the repository originals: even
+// visually equivalent path optimizations can change rasterized edge pixels.
+const archiveUrl =
+  'https://game-icons.net/archives/ffffff/transparent/game-icons.net.svg.zip';
+const sourcePrefix = 'icons/ffffff/transparent/1x1/';
 const projectRoot = resolve(dirname(new URL(import.meta.url).pathname), '..');
 const publicDirectory = join(projectRoot, 'public');
 const destination = join(publicDirectory, 'game-icons');
 const staging = join(publicDirectory, `.game-icons-${process.pid}`);
-const temporaryDirectory = await mkdtemp(join(tmpdir(), 'game-icons-'));
-const archive = join(temporaryDirectory, 'icons.tar.gz');
-const source = join(temporaryDirectory, 'source');
-const backgroundPath = '<path d="M0 0h512v512H0z"/>';
-
-function run(command: string, args: string[]) {
-  return new Promise<void>((resolvePromise, reject) => {
-    const child = spawn(command, args, {stdio: 'inherit'});
-    child.on('error', reject);
-    child.on('exit', code => {
-      if (code === 0) resolvePromise();
-      else reject(new Error(`${command} exited with code ${code}`));
-    });
-  });
-}
-
-async function collectSvgFiles(directory: string) {
-  const files: string[] = [];
-
-  async function walk(currentDirectory: string) {
-    const entries = await readdir(currentDirectory, {withFileTypes: true});
-    for (const entry of entries) {
-      const path = join(currentDirectory, entry.name);
-      if (entry.isDirectory()) await walk(path);
-      else if (
-        entry.isFile() &&
-        entry.name.endsWith('.svg') &&
-        relative(directory, path).split(sep)[0] !== 'badges'
-      )
-        files.push(path);
-    }
-  }
-
-  await walk(directory);
-  return files.sort();
-}
 
 try {
   console.log(`Downloading ${archiveUrl}`);
@@ -71,13 +27,10 @@ try {
     );
   }
 
-  await finished(
-    Readable.fromWeb(response.body).pipe(createWriteStream(archive)),
-  );
-  await mkdir(source);
-  await run('tar', ['-xzf', archive, '-C', source, '--strip-components=1']);
-
-  const svgFiles = await collectSvgFiles(source);
+  const files = unzipSync(new Uint8Array(await response.arrayBuffer()));
+  const svgFiles = Object.keys(files)
+    .filter(path => path.startsWith(sourcePrefix) && path.endsWith('.svg'))
+    .sort();
   if (svgFiles.length === 0)
     throw new Error('The upstream archive contained no SVG files');
 
@@ -86,20 +39,27 @@ try {
 
   const icons = [];
   for (const sourcePath of svgFiles) {
-    const path = relative(source, sourcePath).split(sep).join('/');
+    const path = sourcePath.slice(sourcePrefix.length);
+    if (!/^[a-z0-9-]+\/[a-z0-9-]+\.svg$/.test(path))
+      throw new Error(`Unsupported icon path: ${path}`);
     const author = path.split('/')[0];
     const fileName = basename(path, '.svg');
     const destinationPath = join(staging, 'svg', path);
 
-    const svg = await readFile(sourcePath, 'utf8');
-    if (!svg.includes(backgroundPath)) {
-      throw new Error(
-        `Cannot make ${path} transparent: background path not found`,
-      );
-    }
+    const svg = strFromU8(files[sourcePath]);
+
+    // Studio exports only the final foreground path on a 512-unit canvas.
+    // Fail loudly if upstream changes that contract instead of exporting
+    // incomplete or differently scaled icons at runtime.
+    if (
+      !svg.includes('viewBox="0 0 512 512"') ||
+      (svg.match(/<path\b/g) ?? []).length !== 1 ||
+      !/<path\b[^>]*\bd="[^"]+"[^>]*\/>\s*<\/svg>/.test(svg)
+    )
+      throw new Error(`Unsupported Studio foreground structure: ${path}`);
 
     await mkdir(dirname(destinationPath), {recursive: true});
-    await writeFile(destinationPath, svg.replace(backgroundPath, ''));
+    await writeFile(destinationPath, svg);
     icons.push({
       name: fileName.replaceAll('-', ' '),
       slug: fileName,
@@ -108,12 +68,14 @@ try {
     });
   }
 
-  const license = await readFile(join(source, 'license.txt'), 'utf8');
+  const license = files['icons/license.txt'];
+  if (!license) throw new Error('The upstream archive contained no license');
   await writeFile(join(staging, 'LICENSE.txt'), license);
   await writeFile(
     join(staging, 'manifest.json'),
     `${JSON.stringify({
       source: repository,
+      archive: archiveUrl,
       license: 'CC BY 3.0',
       updatedAt: new Date().toISOString(),
       count: icons.length,
@@ -128,5 +90,4 @@ try {
   );
 } finally {
   await rm(staging, {recursive: true, force: true});
-  await rm(temporaryDirectory, {recursive: true, force: true});
 }
