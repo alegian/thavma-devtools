@@ -8,7 +8,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#805080',
     icon: {id: 'svg/lorc/orbital.svg'},
     components: ['permutatio', 'vacuos'],
-    opposite: 'humanus',
+    opposite: 'cognitio',
   },
   {
     id: 'aqua',
@@ -26,7 +26,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#876531',
     icon: {id: 'svg/lorc/oak.svg'},
     components: ['herba', 'crescentia'],
-    opposite: 'tempus',
+    opposite: 'corpus',
   },
   {
     id: 'crescentia',
@@ -35,7 +35,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#9f6409',
     icon: {id: 'svg/lorc/bowl-spiral.svg'},
     components: ['victus', 'motus'],
-    opposite: 'fames',
+    opposite: 'orbis',
   },
   {
     id: 'corpus',
@@ -44,7 +44,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#ee478d',
     icon: {id: 'svg/lorc/meat.svg'},
     components: ['permutatio', 'victus'],
-    opposite: 'spiritus',
+    opposite: 'arbor',
   },
   {
     id: 'exanimis',
@@ -53,7 +53,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#3a4000',
     icon: {id: 'svg/lorc/death-zone.svg'},
     components: ['humanus', 'mortuus'],
-    opposite: 'motus',
+    opposite: 'vitium',
   },
   {
     id: 'fames',
@@ -62,7 +62,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#9a0305',
     icon: {id: 'svg/lorc/mouth-watering.svg'},
     components: ['vacuos', 'corpus'],
-    opposite: 'crescentia',
+    opposite: 'messis',
   },
   {
     id: 'impetus',
@@ -80,7 +80,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#01ac00',
     icon: {id: 'svg/lorc/three-leaves.svg'},
     components: ['pulvis', 'victus'],
-    opposite: 'machina',
+    opposite: 'lucrum',
   },
   {
     id: 'humanus',
@@ -89,7 +89,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#ffd7c0',
     icon: {id: 'svg/lorc/two-shadows.svg'},
     components: ['corpus', 'spiritus'],
-    opposite: 'alienis',
+    opposite: 'machina',
   },
   {
     id: 'idea',
@@ -98,7 +98,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#fb8dff',
     icon: {id: 'svg/delapouite/flint-spark.svg'},
     components: ['spiritus', 'motus'],
-    opposite: 'sonorus',
+    opposite: 'vacuos',
   },
   {
     id: 'ignis',
@@ -116,7 +116,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#4040ee',
     icon: {id: 'svg/lorc/dig-dug.svg'},
     components: ['humanus', 'metallum'],
-    opposite: 'potentia',
+    opposite: 'somnium',
   },
   {
     id: 'lux',
@@ -134,7 +134,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#5373d2',
     icon: {id: 'svg/lorc/gears.svg'},
     components: ['tempus', 'fabrico'],
-    opposite: 'herba',
+    opposite: 'humanus',
   },
   {
     id: 'messis',
@@ -143,7 +143,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#e1b371',
     icon: {id: 'svg/lorc/wheat.svg'},
     components: ['humanus', 'herba'],
-    opposite: 'textura',
+    opposite: 'fames',
   },
   {
     id: 'metallum',
@@ -152,7 +152,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#b5b5cd',
     icon: {id: 'svg/lorc/metal-bar.svg'},
     components: ['terra', 'ignis'],
-    opposite: 'vitreus',
+    opposite: 'fabrico',
   },
   {
     id: 'mortuus',
@@ -170,7 +170,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#00d65b',
     icon: {id: 'svg/lorc/journey.svg'},
     components: ['terra', 'ordo'],
-    opposite: 'exanimis',
+    opposite: 'permutatio',
   },
   {
     id: 'ordo',
@@ -197,7 +197,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#578357',
     icon: {id: 'svg/lorc/cycle.svg'},
     components: ['ordo', 'perditio'],
-    opposite: 'densitas',
+    opposite: 'motus',
   },
   {
     id: 'potentia',
@@ -206,7 +206,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#c0ffff',
     icon: {id: 'svg/lorc/thor-fist.svg'},
     components: ['ignis', 'ordo'],
-    opposite: 'instrumentum',
+    opposite: 'tempus',
   },
   {
     id: 'praecantatio',
@@ -215,7 +215,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#9700c0',
     icon: {id: 'svg/lorc/fairy-wand.svg'},
     components: ['spiritus', 'potentia'],
-    opposite: 'fabrico',
+    opposite: 'memoria',
   },
   {
     id: 'pulvis',
@@ -224,7 +224,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#6f3318',
     icon: {id: 'svg/lorc/powder.svg'},
     components: ['perditio', 'terra'],
-    opposite: null,
+    opposite: 'densitas',
   },
   {
     id: 'rosaura',
@@ -233,7 +233,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#b468c0',
     icon: {id: 'svg/lorc/third-eye.svg'},
     components: ['alienis', 'lucrum'],
-    opposite: 'vomica',
+    opposite: 'venenum',
   },
   {
     id: 'sensus',
@@ -242,7 +242,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#0fd9ff',
     icon: {id: 'svg/lorc/butterfly.svg'},
     components: ['lux', 'sonorus'],
-    opposite: 'somnium',
+    opposite: 'spiritus',
   },
   {
     id: 'somnium',
@@ -251,7 +251,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#8c6dcc',
     icon: {id: 'svg/delapouite/dream-catcher.svg'},
     components: ['sensus', 'tenebrae'],
-    opposite: 'sensus',
+    opposite: 'instrumentum',
   },
   {
     id: 'sonorus',
@@ -260,7 +260,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#22c5b2',
     icon: {id: 'svg/lorc/sonic-shout.svg'},
     components: ['ordo', 'aer'],
-    opposite: 'idea',
+    opposite: 'vitreus',
   },
   {
     id: 'spiritus',
@@ -269,7 +269,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#ebebfb',
     icon: {id: 'svg/lorc/spectre.svg'},
     components: ['lux', 'permutatio'],
-    opposite: 'corpus',
+    opposite: 'sensus',
   },
   {
     id: 'tempus',
@@ -278,7 +278,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#cc668e',
     icon: {id: 'svg/lorc/empty-hourglass.svg'},
     components: ['motus', 'permutatio'],
-    opposite: 'arbor',
+    opposite: 'potentia',
   },
   {
     id: 'terra',
@@ -296,7 +296,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#e3d06d',
     icon: {id: 'svg/lorc/bandage-roll.svg'},
     components: ['corpus', 'instrumentum'],
-    opposite: 'messis',
+    opposite: 'aculeus',
   },
   {
     id: 'tutamen',
@@ -314,7 +314,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#888888',
     icon: {id: 'svg/delapouite/circle.svg'},
     components: ['perditio', 'aer'],
-    opposite: 'lucrum',
+    opposite: 'idea',
   },
   {
     id: 'aer',
@@ -341,16 +341,16 @@ export const thavmaAspects: Aspect[] = [
     color: '#80ffff',
     icon: {id: 'svg/lorc/emerald.svg'},
     components: ['ordo', 'aqua'],
-    opposite: 'metallum',
+    opposite: 'sonorus',
   },
   {
-    id: 'vomica',
+    id: 'vitium',
     description: 'Mania, fanaticism, zealotry',
     latent: false,
     color: '#800080',
     icon: {id: 'svg/lorc/infested-mass.svg'},
     components: ['humanus', 'praecantatio'],
-    opposite: 'rosaura',
+    opposite: 'exanimis',
   },
   {
     id: 'orbis',
@@ -359,7 +359,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#43c5f1',
     icon: {id: 'svg/delapouite/glass-ball.svg'},
     components: ['aer', 'aqua'],
-    opposite: 'aculeus',
+    opposite: 'crescentia',
   },
   {
     id: 'densitas',
@@ -368,7 +368,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#cacaca',
     icon: {id: 'svg/lorc/mesh-ball.svg'},
     components: ['vitreus', 'metallum'],
-    opposite: 'permutatio',
+    opposite: 'pulvis',
   },
   {
     id: 'aculeus',
@@ -377,7 +377,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#c7bb1e',
     icon: {id: 'svg/lorc/spiky-eclipse.svg'},
     components: ['impetus', 'orbis'],
-    opposite: 'orbis',
+    opposite: 'textura',
   },
   {
     id: 'tenebrae',
@@ -395,7 +395,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#89f000',
     icon: {id: 'svg/lorc/poison-bottle.svg'},
     components: ['aqua', 'perditio'],
-    opposite: null,
+    opposite: 'rosaura',
   },
   {
     id: 'lucrum',
@@ -404,7 +404,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#e6be44',
     icon: {id: 'svg/lorc/grab.svg'},
     components: ['fames', 'humanus'],
-    opposite: 'vacuos',
+    opposite: 'herba',
   },
   {
     id: 'fabrico',
@@ -413,7 +413,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#809d80',
     icon: {id: 'svg/lorc/hammer-nails.svg'},
     components: ['humanus', 'idea'],
-    opposite: 'praecantatio',
+    opposite: 'metallum',
   },
   {
     id: 'memoria',
@@ -422,7 +422,7 @@ export const thavmaAspects: Aspect[] = [
     color: '#ff4747',
     icon: {id: 'svg/lorc/entangled-typhoon.svg'},
     components: ['spiritus', 'tutamen'],
-    opposite: 'cognitio',
+    opposite: 'praecantatio',
   },
   {
     id: 'cognitio',
@@ -431,6 +431,6 @@ export const thavmaAspects: Aspect[] = [
     color: '#ffc2b3',
     icon: {id: 'svg/lorc/brain.svg'},
     components: ['humanus', 'sensus'],
-    opposite: 'memoria',
+    opposite: 'alienis',
   },
 ];
