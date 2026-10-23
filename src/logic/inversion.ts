@@ -1,7 +1,7 @@
 import type {Aspect, AspectId, ValidationProblem} from '../types/aspect';
 import type {AspectGraph} from './aspectGraph';
 
-export function getCalculatedOpposite(
+export function getInversion(
   aspect: Aspect,
   graph: AspectGraph,
 ): Aspect | null {
@@ -38,7 +38,7 @@ export function getCalculatedOpposite(
       }
       const opposite = resolve(component, nextVisiting);
       if (!opposite) {
-        throw new Error(`Component ${componentId} has no calculated opposite.`);
+        throw new Error(`Component ${componentId} has no inversion.`);
       }
       return opposite.id;
     }) as [AspectId, AspectId];
@@ -65,19 +65,19 @@ export function getCalculatedOpposite(
   return resolve(aspect, new Set());
 }
 
-export function validateCalculatedOpposites(
+export function validateInversions(
   aspects: Aspect[],
   graph: AspectGraph,
 ): ValidationProblem[] {
   return aspects.flatMap(aspect => {
     try {
-      getCalculatedOpposite(aspect, graph);
+      getInversion(aspect, graph);
       return [];
     } catch (error) {
       return [
         {
           aspectId: aspect.id,
-          message: `Calculated opposite: ${error instanceof Error ? error.message : 'Calculation failed.'}`,
+          message: `Inversion: ${error instanceof Error ? error.message : 'Calculation failed.'}`,
           severity: 'error' as const,
         },
       ];

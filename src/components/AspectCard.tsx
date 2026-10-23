@@ -1,6 +1,6 @@
 import type {Aspect} from '../types/aspect';
 import type {AspectGraph} from '../logic/aspectGraph';
-import {getCalculatedOpposite} from '../logic/calculatedOpposite';
+import {getInversion} from '../logic/inversion';
 import {aspectName} from '../logic/format';
 import {AspectIcon} from './AspectIcon';
 
@@ -9,7 +9,7 @@ interface AspectCardProps {
   graph: AspectGraph;
   selected: boolean;
   onSelect: () => void;
-  calculatedOpposites: boolean;
+  inversions: boolean;
 }
 
 export function AspectCard({
@@ -17,7 +17,7 @@ export function AspectCard({
   graph,
   selected,
   onSelect,
-  calculatedOpposites,
+  inversions,
 }: AspectCardProps) {
   const componentAspects = (aspect.components ?? []).map(id =>
     graph.byId.get(id),
@@ -25,12 +25,12 @@ export function AspectCard({
   const useCount = graph.componentUseCounts.get(aspect.id) ?? 0;
   let oppositeId = aspect.opposite;
   let oppositeError: string | null = null;
-  if (calculatedOpposites) {
+  if (inversions) {
     try {
-      oppositeId = getCalculatedOpposite(aspect, graph)?.id ?? null;
+      oppositeId = getInversion(aspect, graph)?.id ?? null;
     } catch (error) {
       oppositeError =
-        error instanceof Error ? error.message : 'Calculated opposite failed.';
+        error instanceof Error ? error.message : 'Inversion failed.';
     }
   }
   return (

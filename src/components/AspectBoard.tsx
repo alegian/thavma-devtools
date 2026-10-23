@@ -7,7 +7,7 @@ interface AspectBoardProps {
   graph: AspectGraph;
   selectedId: string | null;
   onSelect: (id: string) => void;
-  calculatedOpposites: boolean;
+  inversions: boolean;
 }
 
 export function AspectBoard({
@@ -15,7 +15,7 @@ export function AspectBoard({
   graph,
   selectedId,
   onSelect,
-  calculatedOpposites,
+  inversions,
 }: AspectBoardProps) {
   const groups = groupAspectsByDepth(aspects, graph);
   const depths = [...groups.keys()].sort((a, b) =>
@@ -31,7 +31,7 @@ export function AspectBoard({
           graph={graph}
           selectedId={selectedId}
           onSelect={onSelect}
-          calculatedOpposites={calculatedOpposites}
+          inversions={inversions}
         />
       ))}
     </div>

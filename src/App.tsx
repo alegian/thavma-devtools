@@ -7,7 +7,7 @@ import {aspectTemplates} from './data/aspectTemplates';
 import {thaumcraft6Aspects} from './data/thaumcraft6Aspects';
 import {useAspectHistory} from './hooks/useAspectHistory';
 import {buildAspectGraph} from './logic/aspectGraph';
-import {validateCalculatedOpposites} from './logic/calculatedOpposite';
+import {validateInversions} from './logic/inversion';
 import {downloadAspectJson, parseAspectJson} from './logic/importExport';
 import {validateAspects} from './logic/validation';
 import {downloadIcons} from './logic/downloadIcons';
@@ -26,7 +26,7 @@ function loadInitialAspects() {
 function App() {
   const history = useAspectHistory<Aspect[]>(loadInitialAspects());
   const [selectedId, setSelectedId] = useState<string | null>('motus');
-  const [calculatedOpposites, setCalculatedOpposites] = useState(false);
+  const [inversions, setInversions] = useState(false);
   const [icons, setIcons] = useState<GameIcon[]>([]);
   const [iconDownloadProgress, setIconDownloadProgress] = useState<
     string | null
@@ -38,11 +38,9 @@ function App() {
     () => [
       ...importProblems,
       ...validateAspects(history.value),
-      ...(calculatedOpposites
-        ? validateCalculatedOpposites(history.value, graph)
-        : []),
+      ...(inversions ? validateInversions(history.value, graph) : []),
     ],
-    [history.value, importProblems, calculatedOpposites, graph],
+    [history.value, importProblems, inversions, graph],
   );
   const selectedAspect = selectedId
     ? (graph.byId.get(selectedId) ?? null)
@@ -255,8 +253,8 @@ function App() {
         iconDownloadProgress={iconDownloadProgress}
         templates={aspectTemplates}
         onReset={reset}
-        calculatedOpposites={calculatedOpposites}
-        onCalculatedOppositesChange={setCalculatedOpposites}
+        inversions={inversions}
+        onInversionsChange={setInversions}
       />
       <input
         ref={fileInput}
@@ -276,7 +274,7 @@ function App() {
             graph={graph}
             selectedId={selectedId}
             onSelect={setSelectedId}
-            calculatedOpposites={calculatedOpposites}
+            inversions={inversions}
           />
           <ValidationPanel problems={problems} onSelect={setSelectedId} />
         </div>
