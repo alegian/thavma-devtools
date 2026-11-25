@@ -18,7 +18,7 @@ export interface IconExportOptions {
 }
 
 export const defaultIconExportOptions: IconExportOptions = {
-  size: 64,
+  size: 32,
   foreground: '#ffffff',
   background: 'transparent',
   shadow: {color: '#000000', blur: 16, x: 0, y: 0, side: 'out'},
@@ -125,10 +125,14 @@ export async function downloadIcons(
     throw new Error('Invalid icon shadow settings.');
   if (!aspects.length) throw new Error('There are no aspects to export.');
 
+  const icons = [
+    ...aspects.filter(aspect => aspect.id !== 'unknown'),
+    {id: 'unknown', icon: {id: 'svg/sbed/help.svg'}},
+  ];
   const files: Record<string, Uint8Array> = Object.create(null);
   const credits = new Set<string>();
   const paths = new Map<string, string>();
-  for (const [index, aspect] of aspects.entries()) {
+  for (const [index, aspect] of icons.entries()) {
     if (!/^[a-zA-Z0-9_-]+$/.test(aspect.id))
       throw new Error(`Cannot use aspect ID as a filename: ${aspect.id}`);
     const filename = `${aspect.id}.png`;
@@ -173,7 +177,7 @@ export async function downloadIcons(
     credits.add(
       `${aspect.id}: ${author} — https://game-icons.net/1x1/${author}/${slug.replace('.svg', '.html')}`,
     );
-    onProgress?.(index + 1, aspects.length);
+    onProgress?.(index + 1, icons.length);
   }
   const license = await fetch(`${options.assetRoot}LICENSE.txt`);
   if (!license.ok) throw new Error('Could not load the icon license.');
